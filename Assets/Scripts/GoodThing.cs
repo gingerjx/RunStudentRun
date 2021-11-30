@@ -18,7 +18,7 @@ public class GoodThing : MonoBehaviour
 
     void Update()
     {
-        if(transform.position.y + Screen.height/2 > 0)
+        if(transform.position.y > 0)
         {
             transform.position = transform.position + new Vector3(0, -speed * Time.deltaTime, 0);
             
