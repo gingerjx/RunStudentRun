@@ -6,7 +6,7 @@ public class GoodThing : MonoBehaviour
 {
     public float speed = 5;
 
-    void OnCollisionEnter2D(Collision2D collision)
+    void OnTriggerEnter2D(Collider2D collision)
     {
         Debug.Log(collision.gameObject.name);
         if(collision.gameObject.name == "Player")
