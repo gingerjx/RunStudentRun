@@ -27,7 +27,10 @@ public class Spawner : MonoBehaviour
 
     void spawnGoodThing()
     {
-        Vector3 position = new Vector3(Random.Range(0, Screen.width), Screen.height, 0);
+        Camera cam = Camera.main;
+        float height = 2f * cam.orthographicSize;
+        float width = height * cam.aspect;
+        Vector3 position = new Vector3(Random.Range(0, width), height, 0);
         Instantiate(goodPrefab, position, transform.rotation);
     }
 }
