@@ -29,6 +29,14 @@ public class PlayerMovement : MonoBehaviour
             {
                 transform.position = transform.position + new Vector3(movementSpeed * Time.deltaTime, 0,0);
             }
+        } else if(Input.GetKeyDown(KeyCode.LeftArrow)) // for PC
+        {
+            Debug.Log("Dupa");
+            transform.position = transform.position + new Vector3(-movementSpeed * Time.deltaTime, 0, 0);
+        } else if(Input.GetKeyDown(KeyCode.RightArrow)) // for PC
+        {
+            Debug.Log("Kupa");
+            transform.position = transform.position + new Vector3(movementSpeed * Time.deltaTime, 0, 0);
         }
     }
 }
