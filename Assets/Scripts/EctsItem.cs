@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GoodThing : MonoBehaviour
+public class EctsItem : MonoBehaviour
 {
     public float speed = 5;
     public int points = 1;
@@ -12,7 +12,7 @@ public class GoodThing : MonoBehaviour
         Debug.Log(collision.gameObject.name);
         if(collision.gameObject.name == "Player")
         {
-            GameController.addPoint(points);
+            GameController.addEcts(points);
             Destroy(gameObject);
         }
     }

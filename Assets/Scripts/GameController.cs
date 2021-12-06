@@ -5,13 +5,13 @@ using UnityEngine.UI;
 
 public static class GameController
 {
-    static int points = 0;
+    static int ects = 0;
     static int hp = 3;
 
-    public static void addPoint(int pts)
+    public static void addEcts(int pts)
     {
-        points += pts;
-        GameObject.Find("Score").GetComponent<Text>().text = "Score: " + points;
+        ects += pts;
+        GameObject.Find("Ects").GetComponent<Text>().text = "Ects: " + ects;
     }
     public static void damage()
     {
