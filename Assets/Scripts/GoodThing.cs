@@ -5,13 +5,14 @@ using UnityEngine;
 public class GoodThing : MonoBehaviour
 {
     public float speed = 5;
+    public int points = 1;
 
     void OnTriggerEnter2D(Collider2D collision)
     {
         Debug.Log(collision.gameObject.name);
         if(collision.gameObject.name == "Player")
         {
-            GameController.addPoint();
+            GameController.addPoint(points);
             Destroy(gameObject);
         }
     }
