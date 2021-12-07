@@ -7,6 +7,7 @@ public class Spawner : MonoBehaviour
     public GameObject paperPrefab;
     public GameObject bookPrefab;
     public GameObject drinkPrefab;
+    public GameObject beerPrefab;
 
     public float spawnFreq;
     float spawnTimer;
@@ -24,7 +25,7 @@ public class Spawner : MonoBehaviour
         }
         else
         {
-            GameObject[] prefabs = { paperPrefab, bookPrefab, drinkPrefab };
+            GameObject[] prefabs = { paperPrefab, bookPrefab, drinkPrefab, beerPrefab };
             int index = Random.Range(0, prefabs.Length);
             spawnGoodThing(prefabs[index]);
             spawnTimer = spawnFreq;

@@ -16,7 +16,7 @@ public static class GameController
 
     static int semester = 1;
     static int ects = 0;
-    static int energy = 98;
+    static int energy = 100;
 
     public static void addEcts(int pts)
     {
@@ -47,10 +47,23 @@ public static class GameController
     public static void addEnergy(int pts)
     {
         energy += pts;
-        if (energy > MAX_ENERGY)
-            energy = MAX_ENERGY;
+        energy = Mathf.Clamp(energy, 0, MAX_ENERGY);
 
         GameObject.Find("Energy").GetComponent<Text>().text = "Energy: " + energy;
+        GameObject.Find("EnergyBarInner").GetComponent<Image>().fillAmount = Mathf.Clamp((float)energy/(float)MAX_ENERGY,0,1f);
+
+        if (energy <= 0)
+        {
+            Debug.Log("im ded");
+        }
+    }
+
+    public static void decreaseEnergy(int pts)
+    {
+        energy -= pts;
+
+        GameObject.Find("Energy").GetComponent<Text>().text = "Energy: " + energy;
+        GameObject.Find("EnergyBarInner").GetComponent<Image>().fillAmount = Mathf.Clamp((float)energy / (float)MAX_ENERGY, 0, 1f);
 
         if (energy <= 0)
         {

@@ -1,12 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour
 {
     private Rect p1Zone, p2Zone;
-    private BoxCollider2D collider;
     private float movementSpeed = 100f;
     PlayerInputActions playerInputActions;
     Vector2 touchPosition;
@@ -32,9 +31,6 @@ public class PlayerMovement : MonoBehaviour
     {
         p1Zone = new Rect(0, 0, Screen.width * 0.5f, Screen.height);
         p2Zone = new Rect(Screen.width * 0.5f, Screen.width * 0.5f, Screen.width * 0.5f, Screen.height);
-        collider = GetComponent<BoxCollider2D>();
-        //playerInputActions.Player.Move.performed += ctx => Move(ctx);
-        //playerInputActions.Player.Move.canceled += ctx => MoveCancel(ctx);
     }
 
     void Update()
