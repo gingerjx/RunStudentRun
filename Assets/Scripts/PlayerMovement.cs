@@ -1,42 +1,56 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
-    private Touch theTouch;
     private Rect p1Zone, p2Zone;
     private BoxCollider2D collider;
     private float movementSpeed = 100f;
+    PlayerInputActions playerInputActions;
+    Vector2 touchPosition;
+    float moving;
+
     // Start is called before the first frame update
-    void Start()
+    private void Awake()
+    {
+        playerInputActions = new PlayerInputActions();
+    }
+
+    private void OnEnable()
+    {
+        playerInputActions.Player.Enable();
+    }
+
+    private void OnDisable()
+    {
+        playerInputActions.Player.Disable();
+    }
+
+    private void Start()
     {
         p1Zone = new Rect(0, 0, Screen.width * 0.5f, Screen.height);
-        p2Zone = new Rect(Screen.width * 0.5f, Screen.width * 0.5f, Screen.width * 0.5f ,Screen.height);
+        p2Zone = new Rect(Screen.width * 0.5f, Screen.width * 0.5f, Screen.width * 0.5f, Screen.height);
         collider = GetComponent<BoxCollider2D>();
+        //playerInputActions.Player.Move.performed += ctx => Move(ctx);
+        //playerInputActions.Player.Move.canceled += ctx => MoveCancel(ctx);
     }
 
     void Update()
     {
-        if(Input.touchCount > 0)
+        touchPosition = playerInputActions.Player.Move.ReadValue<Vector2>();
+        moving = playerInputActions.Player.Touch.ReadValue<float>();
+        if (moving > 0)
         {
-            theTouch = Input.GetTouch(0);
-            if(p1Zone.Contains(theTouch.position) && transform.localPosition.x > -Screen.width*0.5) // w lewo
+            if (p1Zone.Contains(touchPosition) && transform.localPosition.x > -Screen.width * 0.5) // w lewo
             {
                 transform.position = transform.position + new Vector3(-movementSpeed * Time.deltaTime, 0, 0);
             }
-            else if(p2Zone.Contains(theTouch.position) && transform.localPosition.x < Screen.width*0.5) // w prawo
+            else if (p2Zone.Contains(touchPosition) && transform.localPosition.x < Screen.width * 0.5) // w prawo
             {
-                transform.position = transform.position + new Vector3(movementSpeed * Time.deltaTime, 0,0);
+                transform.position = transform.position + new Vector3(movementSpeed * Time.deltaTime, 0, 0);
             }
-        } else if(Input.GetKeyDown(KeyCode.LeftArrow)) // for PC
-        {
-            Debug.Log("Dupa");
-            transform.position = transform.position + new Vector3(-movementSpeed * Time.deltaTime, 0, 0);
-        } else if(Input.GetKeyDown(KeyCode.RightArrow)) // for PC
-        {
-            Debug.Log("Kupa");
-            transform.position = transform.position + new Vector3(movementSpeed * Time.deltaTime, 0, 0);
         }
     }
 }
