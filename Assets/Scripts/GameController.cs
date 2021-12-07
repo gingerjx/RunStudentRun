@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+
 public static class GameController
 {
     const int SEMESTER_PASS = 4; // For debugging purposes, will be changed to 30
@@ -54,7 +55,7 @@ public static class GameController
 
         if (energy <= 0)
         {
-            Debug.Log("im ded");
+            deadScreen();
         }
     }
 
@@ -67,8 +68,15 @@ public static class GameController
 
         if (energy <= 0)
         {
-            Debug.Log("im ded");
+            deadScreen();
         }
     }
 
+    public static void deadScreen()
+    {
+        GameObject.Find("LoseScreen").GetComponent<Canvas>().enabled = true;
+        GameObject.Find("MainCanvas").GetComponent<Canvas>().enabled = false;
+        GameObject.Find("Info").GetComponent<Text>().text = GameObject.Find("Title").GetComponent<Text>().text;
+        Time.timeScale = 0;
+    }
 }
