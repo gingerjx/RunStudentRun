@@ -45,6 +45,11 @@ public static class GameController
         GameObject.Find("Semester").GetComponent<Text>().text = "Sem: " + semester;
     }
 
+    public static void retry()
+    {
+        energy = MAX_ENERGY;
+        ects = 0;
+    }
     public static void addEnergy(int pts)
     {
         energy += pts;
