@@ -6,11 +6,16 @@ public class SceneHandler : MonoBehaviour
 {
     public void retry()
     {
-        Time.timeScale = 1;
-
         Scene scene = SceneManager.GetActiveScene();
         SceneManager.LoadScene(scene.name);
         GameController.retry();
+
+        Time.timeScale = 1;
+    }
+
+    public void continueGame()
+    {
+        GameController.continueGame();
     }
 
     public void ChangeSceneToGame()

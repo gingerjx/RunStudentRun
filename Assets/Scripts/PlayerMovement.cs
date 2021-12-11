@@ -30,7 +30,7 @@ public class PlayerMovement : MonoBehaviour
     private void Start()
     {
         p1Zone = new Rect(0, 0, Screen.width * 0.5f, Screen.height);
-        p2Zone = new Rect(Screen.width * 0.5f, Screen.width * 0.5f, Screen.width * 0.5f, Screen.height);
+        p2Zone = new Rect(Screen.width * 0.5f, 0, Screen.width * 0.5f, Screen.height);
     }
 
     void Update()

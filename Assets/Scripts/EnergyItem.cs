@@ -9,7 +9,6 @@ public class EnergyItem : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log(collision.gameObject.name);
         if (collision.gameObject.name == "Player")
         {
             GameController.addEnergy(points);

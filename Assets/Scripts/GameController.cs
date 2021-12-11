@@ -50,6 +50,12 @@ public static class GameController
         energy = MAX_ENERGY;
         ects = 0;
     }
+    public static void continueGame()
+    {
+        GameObject.Find("LoseScreen").GetComponent<Canvas>().enabled = false;
+        GameObject.Find("MainCanvas").GetComponent<Canvas>().enabled = true;
+        addEnergy(MAX_ENERGY);
+    }
     public static void addEnergy(int pts)
     {
         energy += pts;
@@ -84,4 +90,6 @@ public static class GameController
         GameObject.Find("Info").GetComponent<Text>().text = GameObject.Find("Title").GetComponent<Text>().text;
         Time.timeScale = 0;
     }
+
+
 }
