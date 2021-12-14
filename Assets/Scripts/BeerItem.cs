@@ -6,11 +6,17 @@ public class BeerItem : MonoBehaviour
 {
     public float speed = 5;
     public int damage = 10;
+    public AudioClip collisionClip;
 
     void OnTriggerEnter2D(Collider2D collision)
-    {
+    { 
+        PlayerMovement player = collision.GetComponent<PlayerMovement>();
         if (collision.gameObject.name == "Player")
         {
+            if (player != null && collision != null)
+            {
+                player.PlaySound(collisionClip);
+            }
             GameController.decreaseEnergy(damage);
             Destroy(gameObject);
         }
@@ -21,7 +27,6 @@ public class BeerItem : MonoBehaviour
         if (transform.position.y > 0)
         {
             transform.position = transform.position + new Vector3(0, -speed * Time.deltaTime, 0);
-
         }
         else
         {

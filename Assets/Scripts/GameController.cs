@@ -85,6 +85,7 @@ public static class GameController
 
     public static void deadScreen()
     {
+        GameObject.Find("BackgroundMusic").GetComponent<AudioSource>().Stop();
         GameObject.Find("LoseScreen").GetComponent<Canvas>().enabled = true;
         GameObject.Find("MainCanvas").GetComponent<Canvas>().enabled = false;
         GameObject.Find("Info").GetComponent<Text>().text = GameObject.Find("Title").GetComponent<Text>().text;

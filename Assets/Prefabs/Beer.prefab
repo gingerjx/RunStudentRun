@@ -138,3 +138,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 250
   damage: 100
+  collisionClip: {fileID: 8300000, guid: 03b46ceecaaf1ae49a1a01a017a446a9, type: 3}
