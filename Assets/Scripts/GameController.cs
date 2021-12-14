@@ -19,6 +19,8 @@ public static class GameController
     static int ects = 0;
     static int energy = 100;
 
+    static bool isPaused = false;
+
     public static void addEcts(int pts)
     {
         ects += pts;
@@ -49,6 +51,24 @@ public static class GameController
     {
         energy = MAX_ENERGY;
         ects = 0;
+    }
+
+    public static void pauseGame()
+    {
+        if(isPaused)
+        {
+            GameObject.Find("PauseCanvas").GetComponent<Canvas>().enabled = false;
+            GameObject.Find("MainCanvas").GetComponent<Canvas>().enabled = true;
+            Time.timeScale = 1;
+            isPaused = false;
+        }
+        else
+        {
+            GameObject.Find("PauseCanvas").GetComponent<Canvas>().enabled = true;
+            GameObject.Find("MainCanvas").GetComponent<Canvas>().enabled = false;
+            Time.timeScale = 0;
+            isPaused = true;
+        }
     }
     public static void continueGame()
     {

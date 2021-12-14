@@ -13,6 +13,10 @@ public class SceneHandler : MonoBehaviour
         Time.timeScale = 1;
     }
 
+    public void pauseGame()
+    {
+        GameController.pauseGame();
+    }
     public void continueGame()
     {
         GameController.continueGame();
