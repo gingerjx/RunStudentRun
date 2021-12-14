@@ -10,6 +10,7 @@ public class PlayerMovement : MonoBehaviour
     PlayerInputActions playerInputActions;
     Vector2 touchPosition;
     float moving;
+    private AudioSource audioSource;
 
     // Start is called before the first frame update
     private void Awake()
@@ -31,6 +32,7 @@ public class PlayerMovement : MonoBehaviour
     {
         p1Zone = new Rect(0, 0, Screen.width * 0.5f, Screen.height);
         p2Zone = new Rect(Screen.width * 0.5f, 0, Screen.width * 0.5f, Screen.height);
+        audioSource = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -48,5 +50,10 @@ public class PlayerMovement : MonoBehaviour
                 transform.position = transform.position + new Vector3(movementSpeed * Time.deltaTime, 0, 0);
             }
         }
+    }
+
+    public void PlaySound(AudioClip clip)
+    {
+        audioSource.PlayOneShot(clip);
     }
 }
