@@ -10,9 +10,11 @@ public static class GameController
     const int BACHELOR_SEM = 1; // For debugging purposes, will be changed to 7
     const int MASTER_SEM = 2; // For debugging purposes, will be changed to 10
     const int PHD_SEM = 3; // For debugging purposes, will be changed to 20
+    const int PROF_SEM = 4; // For debugging purposes, will be changed to 40
     const string BACHELOR_NAME = "B.S.E.";
     const string MASTER_NAME = "M.S.";
     const string PHD_NAME = "Ed.D.";
+    const string PROF_NAME = "Prof.";
     const int MAX_ENERGY = 100;
 
     static int semester = 1;
@@ -37,9 +39,13 @@ public static class GameController
             {
                 GameObject.Find("Title").GetComponent<Text>().text = "Title: " + MASTER_NAME;
             }
-            else
+            else if (semester > PHD_SEM && semester <= PROF_SEM)
             {
                 GameObject.Find("Title").GetComponent<Text>().text = "Title: " + PHD_NAME;
+            }
+            else
+            {
+                GameObject.Find("Title").GetComponent<Text>().text = "Title: " + PROF_NAME;
             }
         }
         
