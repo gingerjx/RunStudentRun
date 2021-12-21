@@ -129,4 +129,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 250
   points: 2
-  collisionClip: {fileID: 0}
+  collisionClip: {fileID: 8300000, guid: b777830703cb6f14c9d2288f3387937f, type: 3}

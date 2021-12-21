@@ -20,6 +20,7 @@ public static class GameController
     static int semester = 1;
     static int ects = 0;
     static int energy = 100;
+    static int currentTitle = 0;
 
     static bool isPaused = false;
 
@@ -34,18 +35,22 @@ public static class GameController
             if (semester > BACHELOR_SEM && semester <= MASTER_SEM)
             {
                 GameObject.Find("Title").GetComponent<Text>().text = "Title: " + BACHELOR_NAME;
+                currentTitle = 2;
             }
             else if (semester > MASTER_SEM && semester <= PHD_SEM)
             {
                 GameObject.Find("Title").GetComponent<Text>().text = "Title: " + MASTER_NAME;
+                currentTitle = 3;
             }
             else if (semester > PHD_SEM && semester <= PROF_SEM)
             {
                 GameObject.Find("Title").GetComponent<Text>().text = "Title: " + PHD_NAME;
+                currentTitle = 4;
             }
             else
             {
                 GameObject.Find("Title").GetComponent<Text>().text = "Title: " + PROF_NAME;
+                currentTitle = 5;
             }
         }
         
@@ -57,6 +62,8 @@ public static class GameController
     {
         energy = MAX_ENERGY;
         ects = 0;
+        currentTitle = 0;
+        ScoreHandler.resetTimer();
     }
 
     public static void pauseGame()
@@ -114,7 +121,19 @@ public static class GameController
         GameObject.Find("BackgroundMusic").GetComponent<AudioSource>().Stop();
         GameObject.Find("LoseScreen").GetComponent<Canvas>().enabled = true;
         GameObject.Find("MainCanvas").GetComponent<Canvas>().enabled = false;
-        GameObject.Find("Info").GetComponent<Text>().text = GameObject.Find("Title").GetComponent<Text>().text;
+        GameObject.Find("Info").GetComponent<Text>().text ="Score: " + ScoreHandler.GetScore(semester, currentTitle);
+
+        if (PlayerPrefs.HasKey("Highscore"))
+        {                
+            if (PlayerPrefs.GetInt("Highscore") < ScoreHandler.GetScore(semester, currentTitle))
+                PlayerPrefs.SetInt("Highscore", ScoreHandler.GetScore(semester, currentTitle));
+        }
+        else
+            PlayerPrefs.SetInt("Highscore", ScoreHandler.GetScore(semester, currentTitle));
+            
+        ScoreHandler.resetTimer();
+
+
         Time.timeScale = 0;
     }
 
