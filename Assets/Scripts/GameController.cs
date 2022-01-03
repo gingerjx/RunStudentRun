@@ -22,6 +22,9 @@ public static class GameController
     static int energy = 100;
 
     static bool isPaused = false;
+    
+    public static bool musicMuted = false;
+    public static bool soundMuted = false;
 
     public static void addEcts(int pts)
     {
