@@ -3,7 +3,15 @@ guid: 1142c813c7718c64c888a69fe8e08af2
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - paperPrefab: {fileID: 3743425406127411926, guid: 22a6b3211f896784094f13fa1789d48f, type: 3}
+  - bookPrefab: {fileID: 5919135732619988558, guid: 482c38150e5874f42bb91719417fe9fe, type: 3}
+  - drinkPrefab: {fileID: 3813531929334977093, guid: 35a1352b23ba18144abe31809af16cc1, type: 3}
+  - beerPrefab: {fileID: 5955570440863362760, guid: 6c7a278a8fb44f84095ca059560d6f55, type: 3}
+  - bedPrefab: {fileID: 8434199617011648619, guid: 569bb653a13fa324b8ae68728347982f, type: 3}
+  - cloverPrefab: {fileID: 4042346232087775529, guid: a348ef076f9264946a4324127ed8cc9a, type: 3}
+  - gamepadPrefab: {fileID: 2544522229958013220, guid: 753ae904997bfad499997eb7b16b8ce5, type: 3}
+  - partyPrefab: {fileID: 8604038963252626339, guid: 1d9260ad8cea6ca46b98e329ef6d1399, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

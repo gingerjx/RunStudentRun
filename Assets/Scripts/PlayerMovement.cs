@@ -12,6 +12,7 @@ public class PlayerMovement : MonoBehaviour
     float moving;
     private AudioSource audioSource;
     private AudioSource music;
+    private Animator animator;
 
     // Start is called before the first frame update
     private void Awake()
@@ -34,6 +35,7 @@ public class PlayerMovement : MonoBehaviour
         p1Zone = new Rect(0, 0, Screen.width * 0.5f, Screen.height);
         p2Zone = new Rect(Screen.width * 0.5f, 0, Screen.width * 0.5f, Screen.height);
         audioSource = GetComponent<AudioSource>();
+        animator = GetComponent<Animator>();
         music = GameObject.Find("BackgroundMusic").GetComponent<AudioSource>();
     }
 
@@ -41,16 +43,23 @@ public class PlayerMovement : MonoBehaviour
     {
         touchPosition = playerInputActions.Player.Move.ReadValue<Vector2>();
         moving = playerInputActions.Player.Touch.ReadValue<float>();
+
         if (moving > 0)
         {
+            animator.speed = 1;
+            
             if (p1Zone.Contains(touchPosition) && transform.localPosition.x > -Screen.width * 0.5) // w lewo
             {
+                animator.SetFloat("Move X", -1);
                 transform.position = transform.position + new Vector3(-movementSpeed * Time.deltaTime, 0, 0);
             }
             else if (p2Zone.Contains(touchPosition) && transform.localPosition.x < Screen.width * 0.5) // w prawo
             {
+                animator.SetFloat("Move X", 1);
                 transform.position = transform.position + new Vector3(movementSpeed * Time.deltaTime, 0, 0);
             }
+        } else {
+            animator.speed = 0;
         }
 
         // mutowanie muzyki globalnie

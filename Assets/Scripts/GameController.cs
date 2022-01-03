@@ -20,6 +20,7 @@ public static class GameController
     static int semester = 1;
     static int ects = 0;
     static int energy = 100;
+    static int currentTitle = 0;
 
     static bool isPaused = false;
     
@@ -60,6 +61,8 @@ public static class GameController
     {
         energy = MAX_ENERGY;
         ects = 0;
+        currentTitle = 0;
+        ScoreHandler.resetTimer();
     }
 
     public static void pauseGame()
@@ -119,7 +122,19 @@ public static class GameController
         GameObject.Find("BackgroundMusic").GetComponent<AudioSource>().Pause();
         GameObject.Find("LoseScreen").GetComponent<Canvas>().enabled = true;
         GameObject.Find("MainCanvas").GetComponent<Canvas>().enabled = false;
-        GameObject.Find("Info").GetComponent<Text>().text = GameObject.Find("Title").GetComponent<Text>().text;
+        GameObject.Find("Info").GetComponent<Text>().text ="Score: " + ScoreHandler.GetScore(semester, currentTitle);
+
+        if (PlayerPrefs.HasKey("Highscore"))
+        {                
+            if (PlayerPrefs.GetInt("Highscore") < ScoreHandler.GetScore(semester, currentTitle))
+                PlayerPrefs.SetInt("Highscore", ScoreHandler.GetScore(semester, currentTitle));
+        }
+        else
+            PlayerPrefs.SetInt("Highscore", ScoreHandler.GetScore(semester, currentTitle));
+            
+        ScoreHandler.resetTimer();
+
+
         Time.timeScale = 0;
     }
 
