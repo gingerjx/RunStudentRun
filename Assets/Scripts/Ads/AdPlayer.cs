@@ -37,5 +37,6 @@ public class AdPlayer : MonoBehaviour
                 Time.timeScale = 1;
                 break;
         }
+        GameObject.Find("BackgroundMusic").GetComponent<AudioSource>().UnPause();
     }
 }
