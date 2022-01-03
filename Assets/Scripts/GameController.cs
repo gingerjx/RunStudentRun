@@ -63,6 +63,7 @@ public static class GameController
     {
         if(isPaused)
         {
+            GameObject.Find("BackgroundMusic").GetComponent<AudioSource>().UnPause();
             GameObject.Find("PauseCanvas").GetComponent<Canvas>().enabled = false;
             GameObject.Find("MainCanvas").GetComponent<Canvas>().enabled = true;
             Time.timeScale = 1;
@@ -70,6 +71,7 @@ public static class GameController
         }
         else
         {
+            GameObject.Find("BackgroundMusic").GetComponent<AudioSource>().Pause();
             GameObject.Find("PauseCanvas").GetComponent<Canvas>().enabled = true;
             GameObject.Find("MainCanvas").GetComponent<Canvas>().enabled = false;
             Time.timeScale = 0;
