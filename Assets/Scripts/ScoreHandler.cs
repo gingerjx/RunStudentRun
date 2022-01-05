@@ -8,7 +8,9 @@ public class ScoreHandler : MonoBehaviour
     void Update()
     {
         if (GameObject.Find("MainCanvas").GetComponent<Canvas>().enabled == true)
+        {
             timer += Time.deltaTime;
+        }
         
     }
 

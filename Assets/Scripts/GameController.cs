@@ -38,18 +38,22 @@ public static class GameController
             if (semester > BACHELOR_SEM && semester <= MASTER_SEM)
             {
                 GameObject.Find("Title").GetComponent<Text>().text = "Title: " + BACHELOR_NAME;
+                currentTitle = 2;
             }
             else if (semester > MASTER_SEM && semester <= PHD_SEM)
             {
                 GameObject.Find("Title").GetComponent<Text>().text = "Title: " + MASTER_NAME;
+                currentTitle = 3;
             }
             else if (semester > PHD_SEM && semester <= PROF_SEM)
             {
                 GameObject.Find("Title").GetComponent<Text>().text = "Title: " + PHD_NAME;
+                currentTitle = 4;
             }
             else
             {
                 GameObject.Find("Title").GetComponent<Text>().text = "Title: " + PROF_NAME;
+                currentTitle = 5;
             }
         }
         
@@ -131,7 +135,16 @@ public static class GameController
         }
         else
             PlayerPrefs.SetInt("Highscore", ScoreHandler.GetScore(semester, currentTitle));
-            
+
+        int coins = 0;
+        if (PlayerPrefs.HasKey("Coins"))
+        {
+            coins = PlayerPrefs.GetInt("Coins");
+        }
+        PlayerPrefs.SetInt("Coins", coins + (ScoreHandler.GetScore(semester, currentTitle)/10));
+
+
+
         ScoreHandler.resetTimer();
 
 
