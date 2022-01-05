@@ -13,7 +13,8 @@ public class EctsItem : MonoBehaviour
         PlayerMovement player = collision.GetComponent<PlayerMovement>();
         if(collision.gameObject.name == "Player")
         {
-            if (player != null && collision != null)
+            // Gdy nastąpi kolizja oraz dźwięk nie jest zmutowany
+            if (player != null && collision != null && !GameController.soundMuted)
             {
                 player.PlaySound(collisionClip);
             }
