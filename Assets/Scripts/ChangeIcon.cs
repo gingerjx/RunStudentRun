@@ -27,15 +27,11 @@ public class ChangeIcon : MonoBehaviour
     {
         if (button == GameObject.Find("MuteMusic").GetComponent<Button>())
         {
-            Debug.Log("Music muted = " + muted);
             GameController.musicMuted = muted;
-            Debug.Log("Music c muted = " + GameController.musicMuted);
         }
         else if (button == GameObject.Find("MuteSound").GetComponent<Button>())
         {
-            Debug.Log("Sound muted = " + muted);
             GameController.soundMuted = muted;
-            Debug.Log("Sound c muted = " + GameController.soundMuted);
         }
     }
 
