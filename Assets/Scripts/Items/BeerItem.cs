@@ -13,8 +13,7 @@ public class BeerItem : MonoBehaviour
         PlayerMovement player = collision.GetComponent<PlayerMovement>();
         if (collision.gameObject.name == "Player")
         {
-            // Gdy nastąpi kolizja oraz dźwięk nie jest zmutowany
-            if (player != null && collision != null && !GameController.soundMuted)
+            if (player != null && collision != null)
             {
                 player.PlaySound(collisionClip);
             }
