@@ -28,7 +28,18 @@ public class Spawner : MonoBehaviour
     void Update()
     {   
         handleFrequencyCheck();
+        handleItemSpawn();
+    }
 
+    void handleFrequencyCheck() {
+        freqAccelarationTimer += Time.deltaTime;
+        if (spawnFreq > SPAWN_FREG_LIMIT && freqAccelarationTimer > freqAccelaration) {
+            freqAccelarationTimer = 0.0f;
+            spawnFreq *= 0.9f;
+        } 
+    }
+
+    void handleItemSpawn() {
         if(spawnTimer > 0)
         {
             spawnTimer -= Time.deltaTime;
@@ -40,14 +51,6 @@ public class Spawner : MonoBehaviour
             spawnGoodThing(prefabs[index]);
             spawnTimer = spawnFreq;
         }
-    }
-
-    void handleFrequencyCheck() {
-        freqAccelarationTimer += Time.deltaTime;
-        if (spawnFreq > SPAWN_FREG_LIMIT && freqAccelarationTimer > freqAccelaration) {
-            freqAccelarationTimer = 0.0f;
-            spawnFreq *= 0.9f;
-        } 
     }
 
     void spawnGoodThing(GameObject prefab)
