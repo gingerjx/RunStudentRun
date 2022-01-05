@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
+    float SPAWN_FREG_LIMIT = 0.7f;
+
     public GameObject paperPrefab;
     public GameObject bookPrefab;
     public GameObject drinkPrefab;
@@ -14,7 +16,9 @@ public class Spawner : MonoBehaviour
     public GameObject partyPrefab;
 
     public float spawnFreq;
+    public int freqAccelaration = 15; // Accelerate spawning after x seconds
     float spawnTimer;
+    float freqAccelarationTimer = 0;
 
     void Start()
     {
@@ -22,7 +26,9 @@ public class Spawner : MonoBehaviour
     }
 
     void Update()
-    {
+    {   
+        handleFrequencyCheck();
+
         if(spawnTimer > 0)
         {
             spawnTimer -= Time.deltaTime;
@@ -34,6 +40,14 @@ public class Spawner : MonoBehaviour
             spawnGoodThing(prefabs[index]);
             spawnTimer = spawnFreq;
         }
+    }
+
+    void handleFrequencyCheck() {
+        freqAccelarationTimer += Time.deltaTime;
+        if (spawnFreq > SPAWN_FREG_LIMIT && freqAccelarationTimer > freqAccelaration) {
+            freqAccelarationTimer = 0.0f;
+            spawnFreq *= 0.9f;
+        } 
     }
 
     void spawnGoodThing(GameObject prefab)
