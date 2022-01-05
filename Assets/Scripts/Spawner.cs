@@ -14,6 +14,7 @@ public class Spawner : MonoBehaviour
     public GameObject cloverPrefab;
     public GameObject gamepadPrefab;
     public GameObject partyPrefab;
+    List<KeyValuePair<GameObject, float>> prefabs; // prefab - spawn probability
 
     public float spawnFreq;
     public int freqAccelaration = 15; // Accelerate spawning after x seconds
@@ -23,6 +24,17 @@ public class Spawner : MonoBehaviour
     void Start()
     {
         spawnTimer = spawnFreq;
+        prefabs = new List<KeyValuePair<GameObject, float>>() {
+            new KeyValuePair<GameObject, float>(bedPrefab, 0.025f), //2.5%
+            new KeyValuePair<GameObject, float>(paperPrefab, 0.05f), //5%
+            new KeyValuePair<GameObject, float>(partyPrefab, 0.075f), //7.5%
+            new KeyValuePair<GameObject, float>(drinkPrefab, 0.1f), //10%
+            new KeyValuePair<GameObject, float>(bookPrefab, 0.1f), //10%
+            new KeyValuePair<GameObject, float>(beerPrefab, 0.10f), //10%
+            new KeyValuePair<GameObject, float>(cloverPrefab, 0.15f), //15%
+            new KeyValuePair<GameObject, float>(gamepadPrefab, 0.15f), //15%
+            new KeyValuePair<GameObject, float>(null, 0.25f) //25%
+        };
     }
 
     void Update()
@@ -46,15 +58,32 @@ public class Spawner : MonoBehaviour
         }
         else
         {
-            GameObject[] prefabs = { paperPrefab, bookPrefab, drinkPrefab, beerPrefab, bedPrefab, cloverPrefab, gamepadPrefab, partyPrefab };
-            int index = Random.Range(0, prefabs.Length);
-            spawnGoodThing(prefabs[index]);
+            spawnGoodThing(drawItem());
             spawnTimer = spawnFreq;
         }
     }
 
+    GameObject drawItem() {
+        float value = Random.Range(0.0f, 1.0f);
+        float sum = 0.0f;
+        foreach (var item in prefabs) {
+            sum += item.Value;
+            if (value < sum)
+            {
+                return item.Key;
+            }
+        }     
+        return null;
+    }
+
     void spawnGoodThing(GameObject prefab)
     {
+        if (prefab == null)
+        {
+            return;
+        }
+            
+
         Camera cam = Camera.main;
         float height = 2f * cam.orthographicSize;
         float width = height * cam.aspect;
