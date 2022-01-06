@@ -33,4 +33,9 @@ public class SceneHandler : MonoBehaviour
         GameController.retry();
         SceneManager.LoadScene("StartScene");
     }
+
+    public void ChangeSceneToShop()
+    {
+        SceneManager.LoadScene("ShopScene");
+    }
 }

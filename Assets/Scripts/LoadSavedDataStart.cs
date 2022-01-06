@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class LoadSavedData : MonoBehaviour
+public class LoadSavedDataStart : MonoBehaviour
 {
     void Start()
     {
@@ -11,11 +11,6 @@ public class LoadSavedData : MonoBehaviour
             GameObject.Find("Highscore").GetComponent<Text>().text = "Highscore: " + PlayerPrefs.GetInt("Highscore");
         else
             GameObject.Find("Highscore").GetComponent<Text>().text = "Highscore: 0";
-
-        if (PlayerPrefs.HasKey("Coins"))
-            GameObject.Find("Coins").GetComponent<Text>().text = "Coins: " + PlayerPrefs.GetInt("Coins");
-        else
-            GameObject.Find("Coins").GetComponent<Text>().text = "Coins: 0";
     }
 
 }
