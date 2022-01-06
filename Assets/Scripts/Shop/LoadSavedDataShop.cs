@@ -8,7 +8,7 @@ public class LoadSavedDataShop : MonoBehaviour
     void Start()
     {
         if(PlayerPrefs.HasKey("KnowledgePoints"))
-            GameObject.Find("KnowledgePoints").GetComponent<Text>().text = "" + PlayerPrefs.GetInt("Highscore");
+            GameObject.Find("KnowledgePoints").GetComponent<Text>().text = "" + PlayerPrefs.GetInt("KnowledgePoints");
         else
             GameObject.Find("KnowledgePoints").GetComponent<Text>().text = "0";
 
