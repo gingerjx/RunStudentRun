@@ -7,15 +7,15 @@ public class LoadSavedDataShop : MonoBehaviour
 {
     void Start()
     {
-        if(PlayerPrefs.HasKey("KnowledgePoints"))
-            GameObject.Find("KnowledgePoints").GetComponent<Text>().text = "" + PlayerPrefs.GetInt("KnowledgePoints");
-        else
-            GameObject.Find("KnowledgePoints").GetComponent<Text>().text = "0";
-
-        if (PlayerPrefs.HasKey("Coins"))
-            GameObject.Find("Coins").GetComponent<Text>().text = "" + PlayerPrefs.GetInt("Coins");
-        else
-            GameObject.Find("Coins").GetComponent<Text>().text = "0";
+        setIntLabel("KnowledgePoints", "KnowledgePoints"); 
+        setIntLabel("Coins", "Coins");
+        setIntLabel("InsuranceBoost", "InsuranceAmount"); 
+        setIntLabel("DeadlineBoost", "DeadlineAmount"); 
+        setIntLabel("KebabBoost", "KebabAmount");  
     }
 
+    void setIntLabel(string prefName, string uiName) {  
+        string value =   PlayerPrefs.HasKey(prefName) ? "" + PlayerPrefs.GetInt(prefName) : "0";
+        GameObject.Find(uiName).GetComponent<Text>().text = value;
+    }
 }
