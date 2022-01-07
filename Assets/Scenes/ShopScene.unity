@@ -866,9 +866,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 418134328}
-        m_TargetAssemblyTypeName: BuyCurrencyHandler, Assembly-CSharp
-        m_MethodName: buy100KP
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: BuyBoostKP, Assembly-CSharp
+        m_MethodName: buyDeadline
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1902,9 +1902,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 418134328}
-        m_TargetAssemblyTypeName: BuyCurrencyHandler, Assembly-CSharp
-        m_MethodName: buy100KP
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: BuyBoostKP, Assembly-CSharp
+        m_MethodName: buyKebab
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2297,9 +2297,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 418134328}
-        m_TargetAssemblyTypeName: BuyCurrencyHandler, Assembly-CSharp
-        m_MethodName: buy100KP
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: BuyBoostKP, Assembly-CSharp
+        m_MethodName: buyInsurance
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3146,6 +3146,56 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1202752316}
   m_CullTransparentMesh: 1
+--- !u!1 &1203945733
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1203945735}
+  - component: {fileID: 1203945734}
+  m_Layer: 0
+  m_Name: BuyBoostKPHandler
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1203945734
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1203945733}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fab5cddd84bbe07478e94efd0db3f827, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  insuranceCost: 100
+  deadlineCost: 200
+  kebabCost: 30
+  insuranceText: {fileID: 1205682978}
+  deadlineText: {fileID: 893996894}
+  kebabText: {fileID: 1143349989}
+  kpText: {fileID: 773949313}
+--- !u!4 &1203945735
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1203945733}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 110.71616, y: 355.4082, z: -22.169731}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1205682976
 GameObject:
   m_ObjectHideFlags: 0
@@ -4277,21 +4327,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1738700590}
-        m_TargetAssemblyTypeName: ButtonClickSound, Assembly-CSharp
-        m_MethodName: onButtonClicked
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 418134328}
-        m_TargetAssemblyTypeName: BuyCurrencyHandler, Assembly-CSharp
-        m_MethodName: buy100KP
+      - m_Target: {fileID: 1203945734}
+        m_TargetAssemblyTypeName: BuyBoostKP, Assembly-CSharp
+        m_MethodName: buyKebab
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4435,21 +4473,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1753646360}
-        m_TargetAssemblyTypeName: ButtonClickSound, Assembly-CSharp
-        m_MethodName: onButtonClicked
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 418134328}
-        m_TargetAssemblyTypeName: BuyCurrencyHandler, Assembly-CSharp
-        m_MethodName: buy100KP
+      - m_Target: {fileID: 1203945734}
+        m_TargetAssemblyTypeName: BuyBoostKP, Assembly-CSharp
+        m_MethodName: buyDeadline
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4651,6 +4677,56 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1802015752}
   m_CullTransparentMesh: 1
+--- !u!1 &1817778390
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1817778392}
+  - component: {fileID: 1817778391}
+  m_Layer: 0
+  m_Name: 'BuyBoostCoinsHandler '
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1817778391
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1817778390}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7c4047c1920b0a45990c3131d9d385f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  insuranceCost: 500
+  deadlineCost: 800
+  kebabCost: 200
+  insuranceText: {fileID: 1205682978}
+  deadlineText: {fileID: 893996894}
+  kebabText: {fileID: 1143349989}
+  coinsText: {fileID: 1271723245}
+--- !u!4 &1817778392
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1817778390}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 110.71616, y: 355.4082, z: -22.169731}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1913218984
 GameObject:
   m_ObjectHideFlags: 0
@@ -4747,21 +4823,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1913218986}
-        m_TargetAssemblyTypeName: ButtonClickSound, Assembly-CSharp
-        m_MethodName: onButtonClicked
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 418134328}
-        m_TargetAssemblyTypeName: BuyCurrencyHandler, Assembly-CSharp
-        m_MethodName: buy100KP
+      - m_Target: {fileID: 1203945734}
+        m_TargetAssemblyTypeName: BuyBoostKP, Assembly-CSharp
+        m_MethodName: buyInsurance
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
