@@ -453,7 +453,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Clover - Give us 1 ECTS point
+  m_Text: Clover - Gives 1 ECTS point
 --- !u!222 &111209013
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1342,7 +1342,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: ' Book - Give us 2 ECTS points'
+  m_Text: ' Book - Gives 2 ECTS points'
 --- !u!222 &330275391
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1500,7 +1500,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Paper - Give us 3 ECTS points
+  m_Text: Paper - Gives 3 ECTS points
 --- !u!222 &455664354
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1606,7 +1606,7 @@ Canvas:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 485356251}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 0
   m_Camera: {fileID: 0}
@@ -2331,7 +2331,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Paper - Give us 3 ECTS points
+  m_Text: Paper - Gives 3 ECTS points
 --- !u!222 &655883120
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2447,7 +2447,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: ' Book - Give us 2 ECTS points'
+  m_Text: ' Book - Gives 2 ECTS points'
 --- !u!222 &699828530
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2799,7 +2799,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Party - We lost 15 energy
+  m_Text: Party - Lose 15 energy
 --- !u!222 &837610792
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4201,7 +4201,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -311.11975}
+  m_AnchoredPosition: {x: 0, y: -224.12079}
   m_SizeDelta: {x: 369, y: 1248.2416}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1123947312
@@ -4520,7 +4520,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Bed - Give us 10 energy
+  m_Text: Bed - Gives 10 energy
 --- !u!222 &1134502157
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4652,7 +4652,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Games - We lost 2 energy
+  m_Text: Games - Lose 2 energy
 --- !u!222 &1173305292
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4731,7 +4731,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Games - We lost 2 energy
+  m_Text: Games - Lose 2 energy
 --- !u!222 &1199810373
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4810,7 +4810,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Party - We lost 15 energy
+  m_Text: Party - Lose 15 energy
 --- !u!222 &1232270652
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5076,7 +5076,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Bed - Give us 10 energy
+  m_Text: Bed - Gives 10 energy
 --- !u!222 &1322075165
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -6120,7 +6120,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Energy drink - Give us 3 energy
+  m_Text: Energy drink - Gives 3 energy
 --- !u!222 &1523835844
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -6200,18 +6200,19 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: 'Your goal is to graduate from the university with the highest degree.
-    To achive that you have to collect ETCS poins. Every 30 ECTS you pass 1 semester.
-    Avaible titles:
+    To achieve that you have to collect ECTS points. Every 30 ECTS you pass 1 semester.
+    Available titles:
 
 
     Engineer - after 7 semesters
 
-    Master''s degree - after
-    10 semesters
+    Master''s degree -
+    after 10 semesters
 
     Doctor - after 20 semesters
 
-    Professor - after 30 semesters'
+    Professor - after 30
+    semesters'
 --- !u!222 &1547600916
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -6290,7 +6291,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Beer - We lost 5 energy
+  m_Text: Beer - Lose 5 energy
 --- !u!222 &1551655322
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -6673,7 +6674,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Energy drink - Give us 3 energy
+  m_Text: Energy drink - Gives 3 energy
 --- !u!222 &1611295692
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -6922,7 +6923,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Beer - We lost 5 energy
+  m_Text: Beer - Lose 5 energy
 --- !u!222 &1627894034
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -7779,7 +7780,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Clover - Give us 1 ECTS point
+  m_Text: Clover - Gives 1 ECTS point
 --- !u!222 &1810064231
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -8328,7 +8329,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Knowledge Points - It'a a premium currency that you can buy in shop. You
+  m_Text: Knowledge Points - It's a premium currency that you can buy in shop. You
     can buy boosts and premium skins with that.
 --- !u!222 &1845908829
 CanvasRenderer:
