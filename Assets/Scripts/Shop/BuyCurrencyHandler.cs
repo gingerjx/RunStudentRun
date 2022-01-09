@@ -6,7 +6,6 @@ using UnityEngine.UI;
 public class BuyCurrencyHandler : MonoBehaviour
 {
     public Text KPText;
-
     public void buy100KP() {
         buyKP(100);
     }
