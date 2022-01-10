@@ -30,9 +30,6 @@ public class BuyBoostCoins : MonoBehaviour
         int coins = PlayerPrefs.HasKey("Coins") ? PlayerPrefs.GetInt("Coins") : 0;
         
         if (boostCost <= coins) {
-            Debug.Log(coins);
-            Debug.Log(boostCost);
-            
             PlayerPrefs.SetInt("Coins", coins - boostCost);
             
             int currentBoostAmount = PlayerPrefs.HasKey(boostName) ? PlayerPrefs.GetInt(boostName) : 0;
