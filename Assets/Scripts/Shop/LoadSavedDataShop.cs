@@ -11,7 +11,7 @@ public class LoadSavedDataShop : MonoBehaviour
         setIntLabel("Coins", "Coins");
         setIntLabel("InsuranceBoost", "InsuranceAmount"); 
         setIntLabel("DeadlineBoost", "DeadlineAmount"); 
-        setIntLabel("KebabBoost", "KebabAmount");  
+        setIntLabel("KebabBoost", "KebabAmount");
     }
 
     void setIntLabel(string prefName, string uiName) {  
