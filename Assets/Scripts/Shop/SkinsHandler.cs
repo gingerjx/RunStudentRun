@@ -12,6 +12,9 @@ public class SkinsHandler : MonoBehaviour
         UNAVAILABLE
     }
 
+    public Text kpLabel;
+    public Text coinsLabel;
+
     public Sprite activeImage;
     public Sprite inactiveImage;
     public Sprite unavailableImage;
@@ -87,30 +90,26 @@ public class SkinsHandler : MonoBehaviour
         };
 
         foreach (Skin skin in skins) {
+            //PlayerPrefs.SetInt(skin.name, 0);
+
             initActiveButton(skin);
             initBuyButtons(skin);
-        }
-    }
 
-    private void initBuyButtons(Skin skin) {
-        if (skin.KP == null || skin.coins == null)
-            return;
+            if (skin.KP == null || skin.coins == null)
+                continue;
 
-        skin.KP.GetComponentInChildren<Text>().text = "" + skin.KPCost;
-        skin.coins.GetComponentInChildren<Text>().text = "" + skin.coinsCost;
-
-        if (skin.state == ActivationState.UNAVAILABLE) {
-            skin.KP.image.overrideSprite = inactiveImage;
-            skin.coins.image.overrideSprite = inactiveImage;
-        } else {
-            skin.KP.image.overrideSprite = unavailableImage;
-            skin.coins.image.overrideSprite = unavailableImage;
+            skin.KP.onClick.AddListener(() => {
+                buySkinForKP(skin);
+            });
+            skin.coins.onClick.AddListener(() => {
+                buySkinForCoins(skin);
+            });
         }
     }
 
     private void initActiveButton(Skin skin) {
-        bool isSkinActive = PlayerPrefs.HasKey(skin.name) && (PlayerPrefs.GetInt(skin.name) != 0);
-        bool hasSkin = PlayerPrefs.HasKey("ActiveSkin") && (PlayerPrefs.GetString("ActiveSkin") == skin.name);
+        bool hasSkin = PlayerPrefs.HasKey(skin.name) && (PlayerPrefs.GetInt(skin.name) != 0);
+        bool isSkinActive = PlayerPrefs.HasKey("ActiveSkin") && (PlayerPrefs.GetString("ActiveSkin") == skin.name);
 
         if (isSkinActive)
             activatedInit(skin);
@@ -137,14 +136,50 @@ public class SkinsHandler : MonoBehaviour
         skin.activation.GetComponentInChildren<Text>().text = "Unavailable";
         skin.state = ActivationState.UNAVAILABLE;
     }
+ 
+    private void initBuyButtons(Skin skin) {
+        if (skin.KP == null || skin.coins == null)
+            return;
 
-    // private void buyButtonsActive() {
-    //     KPButton.image.overrideSprite = inactiveImage;
-    //     CoinsButton.image.overrideSprite = inactiveImage;
-    // }
+        skin.KP.GetComponentInChildren<Text>().text = "" + skin.KPCost;
+        skin.coins.GetComponentInChildren<Text>().text = "" + skin.coinsCost;
 
-    // private void buyButtonInactive() {
-    //     KPButton.image.overrideSprite = unavailableImage;
-    //     CoinsButton.image.overrideSprite = unavailableImage;
-    // }
+        if (skin.state == ActivationState.UNAVAILABLE) {
+            skin.KP.image.overrideSprite = inactiveImage;
+            skin.coins.image.overrideSprite = inactiveImage;
+        } else {
+            skin.KP.image.overrideSprite = unavailableImage;
+            skin.coins.image.overrideSprite = unavailableImage;
+        }
+    }
+
+    private void buySkinForKP(Skin skin) {
+        int kp = PlayerPrefs.HasKey("KnowledgePoints") ? PlayerPrefs.GetInt("KnowledgePoints") : 0;
+
+        if (skin.KPCost <= kp) {
+            PlayerPrefs.SetInt("KnowledgePoints", kp - skin.KPCost);
+            PlayerPrefs.SetInt(skin.name, 1);
+            skin.state = ActivationState.INACTIVATED;
+            inactivatedInit(skin);
+            initBuyButtons(skin);
+            kpLabel.text = "" + (kp - skin.KPCost);
+        } else {
+            /* Not enough KP to buy */
+        }
+    }
+
+    private void buySkinForCoins(Skin skin) {
+        int kp = PlayerPrefs.HasKey("Coins") ? PlayerPrefs.GetInt("Coins") : 0;
+
+        if (skin.KPCost <= kp) {
+            PlayerPrefs.SetInt("Coins", kp - skin.KPCost);
+            PlayerPrefs.SetInt(skin.name, 1);
+            skin.state = ActivationState.INACTIVATED;
+            inactivatedInit(skin);
+            initBuyButtons(skin);
+            coinsLabel.text = "" + (kp - skin.KPCost);
+        } else {
+            /* Not enough KP to buy */
+        }
+    }
 }
