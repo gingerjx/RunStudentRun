@@ -95,6 +95,10 @@ public class SkinsHandler : MonoBehaviour
             initActiveButton(skin);
             initBuyButtons(skin);
 
+            skin.activation.onClick.AddListener(() => {
+                activateSkin(skin);
+            });
+
             if (skin.KP == null || skin.coins == null)
                 continue;
 
@@ -141,8 +145,8 @@ public class SkinsHandler : MonoBehaviour
         if (skin.KP == null || skin.coins == null)
             return;
 
-        skin.KP.GetComponentInChildren<Text>().text = "" + skin.KPCost;
-        skin.coins.GetComponentInChildren<Text>().text = "" + skin.coinsCost;
+        skin.KP.GetComponentInChildren<Text>().text = skin.KPCost + " KP";
+        skin.coins.GetComponentInChildren<Text>().text = skin.coinsCost + " Coins";
 
         if (skin.state == ActivationState.UNAVAILABLE) {
             skin.KP.image.overrideSprite = inactiveImage;
@@ -181,5 +185,21 @@ public class SkinsHandler : MonoBehaviour
         } else {
             /* Not enough KP to buy */
         }
+    }
+
+    private void activateSkin(Skin skin) {
+        if (skin.state == ActivationState.UNAVAILABLE)
+            return;
+            
+        foreach (Skin s in skins) {
+            if (s.state == ActivationState.ACTIVATED) {
+                s.state = ActivationState.INACTIVATED; 
+                inactivatedInit(s);
+            }
+        }
+
+        skin.state = ActivationState.ACTIVATED;
+        PlayerPrefs.SetString("ActiveSkin", skin.name); 
+        activatedInit(skin);
     }
 }
