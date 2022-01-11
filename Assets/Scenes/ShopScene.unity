@@ -300,18 +300,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 53093356}
-        m_TargetAssemblyTypeName: ButtonClickSound, Assembly-CSharp
-        m_MethodName: onButtonClicked
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: BuyBoostKP, Assembly-CSharp
         m_MethodName: buyDeadline
@@ -611,19 +599,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 137241609}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1203945734}
-        m_TargetAssemblyTypeName: BuyBoostKP, Assembly-CSharp
-        m_MethodName: buyDeadline
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &137241609
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -836,19 +812,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 148158401}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1203945734}
-        m_TargetAssemblyTypeName: BuyBoostKP, Assembly-CSharp
-        m_MethodName: buyDeadline
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &148158401
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1832,18 +1796,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 419563798}
-        m_TargetAssemblyTypeName: ButtonClickSound, Assembly-CSharp
-        m_MethodName: onButtonClicked
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: BuyBoostKP, Assembly-CSharp
         m_MethodName: buyDeadline
@@ -2499,18 +2451,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 466712876}
-        m_TargetAssemblyTypeName: ButtonClickSound, Assembly-CSharp
-        m_MethodName: onButtonClicked
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: BuyBoostKP, Assembly-CSharp
         m_MethodName: buyDeadline
@@ -2657,18 +2597,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 494234518}
-        m_TargetAssemblyTypeName: ButtonClickSound, Assembly-CSharp
-        m_MethodName: onButtonClicked
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: BuyBoostKP, Assembly-CSharp
         m_MethodName: buyInsurance
@@ -4058,19 +3986,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 707345174}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1203945734}
-        m_TargetAssemblyTypeName: BuyBoostKP, Assembly-CSharp
-        m_MethodName: buyDeadline
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &707345174
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5479,19 +5395,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1012376916}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1203945734}
-        m_TargetAssemblyTypeName: BuyBoostKP, Assembly-CSharp
-        m_MethodName: buyDeadline
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1012376916
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6129,19 +6033,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1101706846}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1203945734}
-        m_TargetAssemblyTypeName: BuyBoostKP, Assembly-CSharp
-        m_MethodName: buyDeadline
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1101706846
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7747,18 +7639,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1525596841}
-        m_TargetAssemblyTypeName: ButtonClickSound, Assembly-CSharp
-        m_MethodName: onButtonClicked
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: BuyBoostKP, Assembly-CSharp
         m_MethodName: buyInsurance
@@ -7913,6 +7793,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c993b3e9ed88114a946b66014509f85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  kpLabel: {fileID: 773949313}
+  coinsLabel: {fileID: 1271723245}
   activeImage: {fileID: 21300000, guid: ab4392728dfff6a408aaf53b47f1098d, type: 3}
   inactiveImage: {fileID: 21300000, guid: 628101f81eeed1649883f9f8870066a4, type: 3}
   unavailableImage: {fileID: 21300000, guid: d120cd8ce45aa0e459eaf2b457a369ee, type: 3}
@@ -8058,18 +7940,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1619968042}
-        m_TargetAssemblyTypeName: ButtonClickSound, Assembly-CSharp
-        m_MethodName: onButtonClicked
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: BuyBoostKP, Assembly-CSharp
         m_MethodName: buyDeadline
@@ -8294,19 +8164,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1706312991}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1203945734}
-        m_TargetAssemblyTypeName: BuyBoostKP, Assembly-CSharp
-        m_MethodName: buyDeadline
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1706312991
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9045,18 +8903,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1805003902}
-        m_TargetAssemblyTypeName: ButtonClickSound, Assembly-CSharp
-        m_MethodName: onButtonClicked
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: BuyBoostKP, Assembly-CSharp
         m_MethodName: buyDeadline
@@ -9407,18 +9253,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1898817170}
-        m_TargetAssemblyTypeName: ButtonClickSound, Assembly-CSharp
-        m_MethodName: onButtonClicked
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: BuyBoostKP, Assembly-CSharp
         m_MethodName: buyInsurance
