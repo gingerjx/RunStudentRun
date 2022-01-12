@@ -22,17 +22,17 @@ public class EquipmentHandler : MonoBehaviour
         if (GameObject.Find("MainCanvas").GetComponent<Canvas>().enabled == true && isKebabOnCooldown)
         {
             KebabTimer += Time.deltaTime;
-            GameObject.Find("KebabButtonText").GetComponent<Text>().text = (KebabCooldown - KebabTimer).ToString();
+            GameObject.Find("KebabButtonText").GetComponent<Text>().text = (KebabCooldown - KebabTimer).ToString("00.00");
         }
         if (GameObject.Find("MainCanvas").GetComponent<Canvas>().enabled == true && isInsuranceOnCooldown)
         {
             InsuranceTimer += Time.deltaTime;
-            GameObject.Find("InsuranceButtonText").GetComponent<Text>().text = (InsuranceCooldown - InsuranceTimer).ToString();
+            GameObject.Find("InsuranceButtonText").GetComponent<Text>().text = (InsuranceCooldown - InsuranceTimer).ToString("00.00");
         }
         if (GameObject.Find("MainCanvas").GetComponent<Canvas>().enabled == true && isDeadlineOnCooldown)
         {
             DeadlineTimer += Time.deltaTime;
-            GameObject.Find("DeadlineButtonText").GetComponent<Text>().text = (DeadlineCooldown - DeadlineTimer).ToString();
+            GameObject.Find("DeadlineButtonText").GetComponent<Text>().text = (DeadlineCooldown - DeadlineTimer).ToString("00.00");
         }
 
 
@@ -73,7 +73,7 @@ public class EquipmentHandler : MonoBehaviour
             isKebabOnCooldown = true;
             KebabTimer = 0;
             GameObject.Find("KebabButton").GetComponent<Button>().interactable = false;
-            GameObject.Find("KebabButtonText").GetComponent<Text>().text = (KebabCooldown - KebabTimer).ToString();
+            GameObject.Find("KebabButtonText").GetComponent<Text>().text = (KebabCooldown - KebabTimer).ToString("00.00");
         }
 
     }
@@ -87,7 +87,7 @@ public class EquipmentHandler : MonoBehaviour
             isInsuranceOnCooldown = true;
             InsuranceTimer = 0;
             GameObject.Find("InsuranceButton").GetComponent<Button>().interactable = false;
-            GameObject.Find("InsuranceButtonText").GetComponent<Text>().text = (InsuranceCooldown - InsuranceTimer).ToString();
+            GameObject.Find("InsuranceButtonText").GetComponent<Text>().text = (InsuranceCooldown - InsuranceTimer).ToString("00.00");
 
         }
     }
@@ -101,7 +101,7 @@ public class EquipmentHandler : MonoBehaviour
             isDeadlineOnCooldown = true;
             DeadlineTimer = 0;
             GameObject.Find("DeadlineButton").GetComponent<Button>().interactable = false;
-            GameObject.Find("DeadlineButtonText").GetComponent<Text>().text = (DeadlineCooldown - DeadlineTimer).ToString();
+            GameObject.Find("DeadlineButtonText").GetComponent<Text>().text = (DeadlineCooldown - DeadlineTimer).ToString("00.00");
 
         }
     }
