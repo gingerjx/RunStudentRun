@@ -5,14 +5,17 @@ public class AdPlayer : MonoBehaviour
 {
     public void PlayAd()
     {
+        BackgroundMusicHandler.AdsNowPlaying = true;
         if (Advertisement.IsReady("Interstitial_Android"))
         {
-            Advertisement.Show("Interstitial_Android");
+            ShowOptions options = new ShowOptions { resultCallback = HandleResult };
+            Advertisement.Show("Interstitial_Android", options);
         }
     }
 
     public void PlayRewardedAd()
     {
+        BackgroundMusicHandler.AdsNowPlaying = true;
         if (Advertisement.IsReady("Rewarded_Android"))
         {
             ShowOptions options = new ShowOptions { resultCallback = HandleResult };
@@ -27,10 +30,12 @@ public class AdPlayer : MonoBehaviour
             case ShowResult.Finished:
                 Debug.Log("The ad was successfully shown.");
                 Time.timeScale = 1;
+                BackgroundMusicHandler.AdsNowPlaying = false;
                 break;
             case ShowResult.Skipped:
                 Debug.Log("The ad was skipped before reaching the end.");
                 Time.timeScale = 1;
+                BackgroundMusicHandler.AdsNowPlaying = false;
                 break;
             case ShowResult.Failed:
                 Debug.LogError("The ad failed to be shown.");
@@ -38,5 +43,6 @@ public class AdPlayer : MonoBehaviour
                 break;
         }
         GameObject.Find("BackgroundMusic").GetComponent<AudioSource>().UnPause();
+        BackgroundMusicHandler.AdsNowPlaying = false;
     }
 }
