@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class PulseAnimation : MonoBehaviour
 {
-    private SpriteRenderer lootbox;
+    private Image lootbox;
     private RewardDraw drawScript;
     private Image resultBG;
 
@@ -20,7 +20,7 @@ public class PulseAnimation : MonoBehaviour
     Color color;    
 
     void Start() {
-        lootbox = GameObject.Find("Lootbox").GetComponent<SpriteRenderer>();
+        lootbox = GameObject.Find("Lootbox").GetComponent<Image>();
         drawScript = GameObject.Find("RewardDrawHandler").GetComponent<RewardDraw>();
 
         resultBG = GameObject.Find("ResultBG").GetComponent<Image>();
