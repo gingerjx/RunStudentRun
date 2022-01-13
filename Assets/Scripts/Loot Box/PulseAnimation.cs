@@ -61,7 +61,8 @@ public class PulseAnimation : MonoBehaviour
         lootbox.color = color;
 
         KeyValuePair<string, int> result = drawScript.draw();
-        showResult(result.Key + " " + result.Value);
+        addReward(result.Key, result.Value);
+        showResult("You won" + (result.Key.Contains("skin") ? "" : " " +  result.Value) + " " + result.Key + "!");
     }
 
     private void showResult(string result) {
@@ -73,5 +74,14 @@ public class PulseAnimation : MonoBehaviour
     private void hideResult() {
         resultBG.enabled = false;
         resultBG.GetComponentInChildren<Text>().text = "";
+    }
+
+    private void addReward(string name, int amount) {
+        if (name.Contains("skin")) {
+            PlayerPrefs.SetInt(name, 1);
+        } else {
+            int number = PlayerPrefs.GetInt(name) + amount;
+            PlayerPrefs.SetInt(name, number);
+        }
     }
 }
