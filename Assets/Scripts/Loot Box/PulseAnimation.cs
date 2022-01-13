@@ -50,6 +50,7 @@ public class PulseAnimation : MonoBehaviour
         if (blink == true)
             return;
 
+        hideResult();
         blink = true;
         Invoke("draw", 2);
     }
