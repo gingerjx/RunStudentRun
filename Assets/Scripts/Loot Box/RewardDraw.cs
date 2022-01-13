@@ -17,6 +17,6 @@ public class RewardDraw : MonoBehaviour
     }
 
     public KeyValuePair<string, int> draw() {
-        return new KeyValuePair<string, int>("KebabBoost", 1);
+        return new KeyValuePair<string, int>("skin5", 1);
     }
 }

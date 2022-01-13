@@ -38,4 +38,9 @@ public class SceneHandler : MonoBehaviour
     {
         SceneManager.LoadScene("ShopScene");
     }
+
+    public void ChangeSceneToLootBox()
+    {
+        SceneManager.LoadScene("LootBoxScene");
+    }
 }
