@@ -90,7 +90,7 @@ public class SkinsHandler : MonoBehaviour
         };
 
         foreach (Skin skin in skins) {
-            //PlayerPrefs.SetInt(skin.name, 0);
+            // PlayerPrefs.SetInt(skin.name, 0);
 
             initActiveButton(skin);
             initBuyButtons(skin);
@@ -109,15 +109,18 @@ public class SkinsHandler : MonoBehaviour
                 buySkinForCoins(skin);
             });
         }
+
+        // PlayerPrefs.SetInt("skinNormal", 1);
+        // PlayerPrefs.SetString("ActiveSkin", "skinNormal");
     }
 
     private void initActiveButton(Skin skin) {
-        bool hasSkin = PlayerPrefs.HasKey(skin.name) && (PlayerPrefs.GetInt(skin.name) != 0);
+        bool skinAvailable = hasSkin(skin.name);
         bool isSkinActive = PlayerPrefs.HasKey("ActiveSkin") && (PlayerPrefs.GetString("ActiveSkin") == skin.name);
 
         if (isSkinActive)
             activatedInit(skin);
-        else if (hasSkin)
+        else if (skinAvailable)
             inactivatedInit(skin);
         else
             unavailableInit(skin);
@@ -159,8 +162,9 @@ public class SkinsHandler : MonoBehaviour
 
     private void buySkinForKP(Skin skin) {
         int kp = PlayerPrefs.HasKey("KnowledgePoints") ? PlayerPrefs.GetInt("KnowledgePoints") : 0;
+        bool skinAvailable = hasSkin(skin.name);
 
-        if (skin.KPCost <= kp) {
+        if (!skinAvailable && skin.KPCost <= kp) {
             PlayerPrefs.SetInt("KnowledgePoints", kp - skin.KPCost);
             PlayerPrefs.SetInt(skin.name, 1);
             skin.state = ActivationState.INACTIVATED;
@@ -173,15 +177,16 @@ public class SkinsHandler : MonoBehaviour
     }
 
     private void buySkinForCoins(Skin skin) {
-        int kp = PlayerPrefs.HasKey("Coins") ? PlayerPrefs.GetInt("Coins") : 0;
+        int coins = PlayerPrefs.HasKey("Coins") ? PlayerPrefs.GetInt("Coins") : 0;
+        bool skinAvailable = hasSkin(skin.name);
 
-        if (skin.KPCost <= kp) {
-            PlayerPrefs.SetInt("Coins", kp - skin.KPCost);
+        if (!skinAvailable && skin.coinsCost <= coins) {
+            PlayerPrefs.SetInt("Coins", coins - skin.KPCost);
             PlayerPrefs.SetInt(skin.name, 1);
             skin.state = ActivationState.INACTIVATED;
             inactivatedInit(skin);
             initBuyButtons(skin);
-            coinsLabel.text = "" + (kp - skin.KPCost);
+            coinsLabel.text = "" + (coins - skin.coinsCost);
         } else {
             /* Not enough KP to buy */
         }
@@ -201,5 +206,9 @@ public class SkinsHandler : MonoBehaviour
         skin.state = ActivationState.ACTIVATED;
         PlayerPrefs.SetString("ActiveSkin", skin.name); 
         activatedInit(skin);
+    }
+
+    private bool hasSkin(string name) {
+        return PlayerPrefs.HasKey(name) && (PlayerPrefs.GetInt(name) != 0);
     }
 }
