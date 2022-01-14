@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PulseAnimation : MonoBehaviour
+public class LootBoxHandler : MonoBehaviour
 {
     private Image lootbox;
     private RewardDraw drawScript;
