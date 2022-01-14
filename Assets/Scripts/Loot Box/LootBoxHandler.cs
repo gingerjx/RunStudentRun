@@ -37,7 +37,7 @@ public class LootBoxHandler : MonoBehaviour
         resultBG = GameObject.Find("ResultBG").GetComponent<Image>();
         hideResult();
 
-        todayDate = "d"; //System.DateTime.Now.ToShortDateString();
+        todayDate = System.DateTime.Now.ToShortDateString();
         color = lootbox.color;
         a = maximum;
         
