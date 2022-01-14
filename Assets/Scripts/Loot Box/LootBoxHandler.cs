@@ -2,14 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System.Linq;
 
 public class LootBoxHandler : MonoBehaviour
 {
-    private Image lootbox;
     private RewardDraw drawScript;
+    private AdPlayer adPlayer;
+    private AdsController adsController;
+
+    private Image lootbox;
     private Image resultBG;
     private Button startButton;
-    
+
     public float minimum = 0.3f;
     public float maximum = 1f;
     public float cyclesPerSecond = 2.0f;
@@ -23,20 +27,26 @@ public class LootBoxHandler : MonoBehaviour
     Color color;    
 
     void Start() {
-        lootbox = GameObject.Find("Lootbox").GetComponent<Image>();
         drawScript = GameObject.Find("RewardDrawHandler").GetComponent<RewardDraw>();
+        adPlayer = GameObject.Find("AdPlayer").GetComponent<AdPlayer>();
+        adsController = GameObject.Find("AdController").GetComponent<AdsController>();
+        adsController.InitializeAds();
+
+        lootbox = GameObject.Find("Lootbox").GetComponent<Image>();
         startButton = GameObject.Find("StartButton").GetComponent<Button>();
         resultBG = GameObject.Find("ResultBG").GetComponent<Image>();
         hideResult();
 
-        todayDate = System.DateTime.Now.ToShortDateString();
+        todayDate = "d"; //System.DateTime.Now.ToShortDateString();
         color = lootbox.color;
         a = maximum;
-
-        if (startedToday() && !addWatchedToday()) {
+        
+        if (startedToday() && addWatchedToday()) {
+            setDailyLimitDoneButton();
+        } else if (startedToday()) {
             setWatchAdButton();
         } else {
-            setDailyLimitDoneButton();
+            setStartButton();
         }
     }
 
@@ -62,20 +72,19 @@ public class LootBoxHandler : MonoBehaviour
 
         if (!startedToday()) {
             PlayerPrefs.SetInt(todayDate, 1);
+            blink = true;
             setWatchAdButton();
-            help();
+            hideResult();
+            drawCallback(2);
         } else if (!addWatchedToday()) {
-            // watch add
+            adPlayer.PlayRewardedAdWithCallback();
             PlayerPrefs.SetInt("add" + todayDate, 1);
             setDailyLimitDoneButton();
-            help();
         }
     }
-    
-    public void help() {
-        hideResult();
-        blink = true;
-        Invoke("draw", 2);
+
+    public void drawCallback(int sec) {
+        Invoke("draw", sec);
     }
 
     public void draw() {
@@ -115,6 +124,10 @@ public class LootBoxHandler : MonoBehaviour
 
     private bool addWatchedToday() {
         return PlayerPrefs.HasKey("add" + todayDate);
+    }
+
+    private void setStartButton() {
+        startButton.GetComponentInChildren<Text>().text = "Start";
     }
 
     private void setWatchAdButton() {
