@@ -8,7 +8,8 @@ public class LootBoxHandler : MonoBehaviour
     private Image lootbox;
     private RewardDraw drawScript;
     private Image resultBG;
-
+    private Button startButton;
+    
     public float minimum = 0.3f;
     public float maximum = 1f;
     public float cyclesPerSecond = 2.0f;
@@ -17,17 +18,26 @@ public class LootBoxHandler : MonoBehaviour
     private float a;
     private bool increasing = true;
     private bool blink = false;
+    private string todayDate;
+
     Color color;    
 
     void Start() {
         lootbox = GameObject.Find("Lootbox").GetComponent<Image>();
         drawScript = GameObject.Find("RewardDrawHandler").GetComponent<RewardDraw>();
-
+        startButton = GameObject.Find("StartButton").GetComponent<Button>();
         resultBG = GameObject.Find("ResultBG").GetComponent<Image>();
         hideResult();
 
+        todayDate = System.DateTime.Now.ToShortDateString();
         color = lootbox.color;
         a = maximum;
+
+        if (startedToday() && !addWatchedToday()) {
+            setWatchAdButton();
+        } else {
+            setDailyLimitDoneButton();
+        }
     }
 
     void Update() {
@@ -50,6 +60,19 @@ public class LootBoxHandler : MonoBehaviour
         if (blink == true)
             return;
 
+        if (!startedToday()) {
+            PlayerPrefs.SetInt(todayDate, 1);
+            setWatchAdButton();
+            help();
+        } else if (!addWatchedToday()) {
+            // watch add
+            PlayerPrefs.SetInt("add" + todayDate, 1);
+            setDailyLimitDoneButton();
+            help();
+        }
+    }
+    
+    public void help() {
         hideResult();
         blink = true;
         Invoke("draw", 2);
@@ -84,5 +107,21 @@ public class LootBoxHandler : MonoBehaviour
             int number = PlayerPrefs.GetInt(name) + amount;
             PlayerPrefs.SetInt(name, number);
         }
+    }
+
+    private bool startedToday() {
+        return PlayerPrefs.HasKey(todayDate);
+    }
+
+    private bool addWatchedToday() {
+        return PlayerPrefs.HasKey("add" + todayDate);
+    }
+
+    private void setWatchAdButton() {
+        startButton.GetComponentInChildren<Text>().text = "Watch Ad";
+    }
+
+    private void setDailyLimitDoneButton() {
+        startButton.GetComponentInChildren<Text>().text = "You used daily limit";
     }
 }
