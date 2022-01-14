@@ -2254,6 +2254,56 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 531392122}
   m_CullTransparentMesh: 1
+--- !u!1 &625600972
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 625600974}
+  - component: {fileID: 625600973}
+  m_Layer: 0
+  m_Name: SkinHandler
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &625600973
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 625600972}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1727f4d0ce15daf43986f6429b2c7f5d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skinNormalController: {fileID: 9100000, guid: 9907b31049efffe409c1f79bceb49ee2, type: 2}
+  skin1Controller: {fileID: 9100000, guid: 7e73ee0d057804248addb2ac6b60c117, type: 2}
+  skin2Controller: {fileID: 9100000, guid: bdac7d751be6b3847884ddf98afea1d4, type: 2}
+  skin3Controller: {fileID: 9100000, guid: 62843777ab945494095316d2732db87f, type: 2}
+  skin4Controller: {fileID: 9100000, guid: c8bb84a30bf63b8408bf03223c2bbd33, type: 2}
+  skin5Controller: {fileID: 9100000, guid: 34939c6634d3b7a46828f5740eccfdb8, type: 2}
+  playerAnimator: {fileID: 1758088019}
+--- !u!4 &625600974
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 625600972}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -227.47672, y: 464.5751, z: -458.02652}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 13
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &645913399
 GameObject:
   m_ObjectHideFlags: 0
