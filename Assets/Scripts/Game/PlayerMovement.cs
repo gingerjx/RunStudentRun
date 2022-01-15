@@ -53,12 +53,12 @@ public class PlayerMovement : MonoBehaviour
             if (p1Zone.Contains(touchPosition) && transform.localPosition.x > -Screen.width * 0.5) // w lewo
             {
                 animator.SetFloat("Move X", -1);
-                transform.position = transform.position + new Vector3(-movementSpeed * Time.deltaTime, 0, 0);
+                transform.position += new Vector3(-movementSpeed * Time.deltaTime, 0, 0);
             }
             else if (p2Zone.Contains(touchPosition) && transform.localPosition.x < Screen.width * 0.5) // w prawo
             {
                 animator.SetFloat("Move X", 1);
-                transform.position = transform.position + new Vector3(movementSpeed * Time.deltaTime, 0, 0);
+                transform.position += new Vector3(movementSpeed * Time.deltaTime, 0, 0);
             }
         } else {
             animator.speed = 0;
