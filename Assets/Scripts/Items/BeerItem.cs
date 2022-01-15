@@ -18,6 +18,7 @@ public class BeerItem : MonoBehaviour
             {
                 player.PlaySound(collisionClip);
             }
+
             GameController.decreaseEnergy(damage);
             Destroy(gameObject);
         }

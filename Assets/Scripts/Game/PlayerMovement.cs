@@ -6,7 +6,10 @@ using UnityEngine.UI;
 public class PlayerMovement : MonoBehaviour
 {
     private Rect p1Zone, p2Zone;
-    private float movementSpeed = 100f;
+    private const float MOVEMENT_SPEED_NORMAL = 100f;
+    private const float MOVEMENT_SPEED_BOOST = 300f;
+    private const float ANIMATOR_SPEED_NORMAL = 1;
+    private const float ANIMATOR_SPEED_BOOST = 5; 
     PlayerInputActions playerInputActions;
     Vector2 touchPosition;
     float moving;
@@ -41,13 +44,15 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
+        var deadlineBoostActive = EquipmentHandler.IsDeadlineBoostActive();
         touchPosition = playerInputActions.Player.Move.ReadValue<Vector2>();
         moving = playerInputActions.Player.Touch.ReadValue<float>();
 
         if (moving > 0)
         {
-            animator.speed = 1;
-            
+            var movementSpeed = !deadlineBoostActive ? MOVEMENT_SPEED_NORMAL : MOVEMENT_SPEED_BOOST;
+            animator.speed = !deadlineBoostActive ? ANIMATOR_SPEED_NORMAL : ANIMATOR_SPEED_BOOST;
+
             if (p1Zone.Contains(touchPosition) && transform.localPosition.x > -Screen.width * 0.5) // w lewo
             {
                 animator.SetFloat("Move X", -1);
