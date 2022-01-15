@@ -1,7 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -68,8 +65,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
         // mutowanie muzyki globalnie
-        if (GameController.musicMuted == false)  music.volume = 1;
-        else music.volume = 0;
+        music.volume = GameController.musicMuted == false ? 1 : 0;
     }
 
     public void PlaySound(AudioClip clip)
