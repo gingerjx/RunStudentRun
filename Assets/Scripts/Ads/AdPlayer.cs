@@ -58,7 +58,12 @@ public class AdPlayer : MonoBehaviour
 
     private void HandleResult(ShowResult result)
     {
-        GameObject.Find("MainMenuBackgroundMusic").GetComponent<AudioSource>().Stop();
+        if (GameObject.Find("LoseScreen"))
+        {Debug.Log("Elo 1");
+            GameObject.Find("BackgroundMusic").GetComponent<AudioSource>().Stop();}
+        else
+        {Debug.Log("Elo 2");
+            GameObject.Find("MainMenuBackgroundMusic").GetComponent<AudioSource>().Stop();}
         switch (result)
         {
             case ShowResult.Finished:
@@ -77,7 +82,12 @@ public class AdPlayer : MonoBehaviour
                 BackgroundMusicHandler.AdsNowPlaying = false;
                 break;
         }
-        GameObject.Find("MainMenuBackgroundMusic").GetComponent<AudioSource>().Play();
+        if (GameObject.Find("LoseScreen"))
+        {Debug.Log("Elo 11");
+            GameObject.Find("BackgroundMusic").GetComponent<AudioSource>().Play();}
+        else
+        {Debug.Log("Elo 22");
+            GameObject.Find("MainMenuBackgroundMusic").GetComponent<AudioSource>().Play();}
         BackgroundMusicHandler.AdsNowPlaying = false;
     }
 }
