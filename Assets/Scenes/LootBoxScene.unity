@@ -209,7 +209,6 @@ GameObject:
   - component: {fileID: 117690652}
   - component: {fileID: 117690651}
   - component: {fileID: 117690650}
-  - component: {fileID: 117690649}
   m_Layer: 5
   m_Name: BackButton
   m_TagString: Untagged
@@ -237,18 +236,6 @@ RectTransform:
   m_AnchoredPosition: {x: 35, y: -35.000122}
   m_SizeDelta: {x: 40, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &117690649
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 117690647}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be9a5386eba4f0e49a28d8d0f736ad7f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &117690650
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -296,18 +283,6 @@ MonoBehaviour:
       - m_Target: {fileID: 1478044337}
         m_TargetAssemblyTypeName: SceneHandler, Assembly-CSharp
         m_MethodName: ChangeSceneToStart
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 117690649}
-        m_TargetAssemblyTypeName: ButtonClickSound, Assembly-CSharp
-        m_MethodName: onButtonClicked
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1510,6 +1485,18 @@ MonoBehaviour:
       - m_Target: {fileID: 791591819}
         m_TargetAssemblyTypeName: PulseAnimation, Assembly-CSharp
         m_MethodName: startLootBox
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1936973161}
+        m_TargetAssemblyTypeName: ButtonClickSound, Assembly-CSharp
+        m_MethodName: onButtonClicked
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
