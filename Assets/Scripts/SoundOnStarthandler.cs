@@ -12,6 +12,10 @@ public class SoundOnStarthandler : MonoBehaviour
             GameObject.Find("ButtonClickSound").GetComponent<AudioSource>().Play();
             prevScene = "shop";
         }
+        else if (!GameController.soundMuted && GameObject.Find("LootBoxHandler")) {
+            GameObject.Find("ButtonClickSound").GetComponent<AudioSource>().Play();
+            prevScene = "lootBox";
+        }
         else if (prevScene == "shop"){
             GameObject.Find("ButtonClickSound").GetComponent<AudioSource>().Play();
             prevScene = "main";
