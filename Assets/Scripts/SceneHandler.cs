@@ -24,6 +24,7 @@ public class SceneHandler : MonoBehaviour
 
     public void ChangeSceneToGame()
     {
+        MainMenuMusic.Instance.gameObject.GetComponent<AudioSource>().Pause();
         SceneManager.LoadScene("GameScene");
     }
 

@@ -9,10 +9,10 @@ public class BackgroundMusicHandler : MonoBehaviour
 
     private void Start()
     {
-        music = GameObject.Find("BackgroundMusic").GetComponent<AudioSource>();
+        music = GameObject.Find("MainMenuBackgroundMusic").GetComponent<AudioSource>();
         music.Play();
         if (AdsNowPlaying) {
-            music.Pause();
+            music.Stop();
             Debug.Log("music Stopped");
         }
     }

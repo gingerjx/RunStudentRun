@@ -58,6 +58,7 @@ public class AdPlayer : MonoBehaviour
 
     private void HandleResult(ShowResult result)
     {
+        GameObject.Find("MainMenuBackgroundMusic").GetComponent<AudioSource>().Stop();
         switch (result)
         {
             case ShowResult.Finished:
@@ -73,9 +74,10 @@ public class AdPlayer : MonoBehaviour
             case ShowResult.Failed:
                 Debug.LogError("The ad failed to be shown.");
                 Time.timeScale = 1;
+                BackgroundMusicHandler.AdsNowPlaying = false;
                 break;
         }
-        GameObject.Find("BackgroundMusic").GetComponent<AudioSource>().UnPause();
+        GameObject.Find("MainMenuBackgroundMusic").GetComponent<AudioSource>().Play();
         BackgroundMusicHandler.AdsNowPlaying = false;
     }
 }
