@@ -12,13 +12,17 @@ public class EquipmentHandler : MonoBehaviour
     static bool isKebabOnCooldown, isInsuranceOnCooldown, isDeadlineOnCooldown;
     static double KebabTimer, InsuranceTimer, DeadlineTimer;
     
-    GameObject InsuranceTimeLeft;
-    GameObject DeadlineTimeLeft;
+    private GameObject insuranceTimeLeft;
+    private GameObject deadlineTimeLeft;
+    private Vector3 insuranceTimeLeftPosition;
+    private Vector3 deadlineTimeLeftPosition;
     
     void Awake()
     {
-        InsuranceTimeLeft = GameObject.Find("InsuranceTimeLeftImage");
-        DeadlineTimeLeft = GameObject.Find("DeadlineTimeLeftImage");
+        insuranceTimeLeft = GameObject.Find("InsuranceTimeLeftImage");
+        deadlineTimeLeft = GameObject.Find("DeadlineTimeLeftImage");
+        insuranceTimeLeftPosition = insuranceTimeLeft.transform.position;
+        deadlineTimeLeftPosition = deadlineTimeLeft.transform.position;
         GameObject.Find("KebabQuantity").GetComponent<Text>().text = PlayerPrefs.GetInt("KebabBoost", 0).ToString();
         GameObject.Find("InsuranceQuantity").GetComponent<Text>().text = PlayerPrefs.GetInt("InsuranceBoost", 0).ToString();
         GameObject.Find("DeadlineQuantity").GetComponent<Text>().text = PlayerPrefs.GetInt("DeadlineBoost", 0).ToString();
@@ -75,20 +79,32 @@ public class EquipmentHandler : MonoBehaviour
     {
         var active = IsInsuranceBoostActive();
         var timeLeft = INSURANCE_TIME - Mathf.FloorToInt((float) InsuranceTimer);
-        var timeLeftText = InsuranceTimeLeft.GetComponentInChildren<Text>();
+        var timeLeftText = insuranceTimeLeft.GetComponentInChildren<Text>();
         timeLeftText.text = (active ? timeLeft : INSURANCE_TIME).ToString();
         timeLeftText.color = active && Range(0, 4).Contains(timeLeft) ? Color.red : Color.white;
-        InsuranceTimeLeft.SetActive(active);
+        if (timeLeftText.color == Color.red)
+        {
+            var position = insuranceTimeLeftPosition + Random.insideUnitSphere * 2.5f;
+            insuranceTimeLeft.transform.position = position;
+        }
+        else insuranceTimeLeft.transform.position = insuranceTimeLeftPosition;
+        insuranceTimeLeft.SetActive(active);
     }
     
     private void updateDeadlineTimeLeft()
     {
         var active = IsDeadlineBoostActive();
         var timeLeft = DEADLINE_TIME - Mathf.FloorToInt((float) DeadlineTimer);
-        var timeLeftText = DeadlineTimeLeft.GetComponentInChildren<Text>();
+        var timeLeftText = deadlineTimeLeft.GetComponentInChildren<Text>();
         timeLeftText.text = (active ? timeLeft : DEADLINE_TIME).ToString();
         timeLeftText.color = active && Range(0, 4).Contains(timeLeft) ? Color.red : Color.white;
-        DeadlineTimeLeft.SetActive(active);
+        if (timeLeftText.color == Color.red)
+        {
+            var position = deadlineTimeLeftPosition + Random.insideUnitSphere * 2.5f;
+            deadlineTimeLeft.transform.position = position;
+        }
+        else deadlineTimeLeft.transform.position = deadlineTimeLeftPosition;
+        deadlineTimeLeft.SetActive(active);
     }
 
     public void KebabUse()
