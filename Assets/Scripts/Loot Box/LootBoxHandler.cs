@@ -84,7 +84,7 @@ public class LootBoxHandler : MonoBehaviour
     }
 
     public void drawCallback(int sec) {
-        Invoke("draw", sec);
+        Invoke(nameof(draw), sec);
     }
 
     public void draw() {
@@ -101,7 +101,7 @@ public class LootBoxHandler : MonoBehaviour
     private void showResult(string result) {
         resultBG.enabled = true;
         resultBG.GetComponentInChildren<Text>().text = result;
-        Invoke("hideResult", 3);
+        Invoke(nameof(hideResult), 3);
     }
 
     private void hideResult() {
