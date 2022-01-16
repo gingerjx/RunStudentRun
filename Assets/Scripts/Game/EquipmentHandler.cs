@@ -1,47 +1,61 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using static System.Linq.Enumerable;
 
 public class EquipmentHandler : MonoBehaviour
 {
+    const int KEBAB_ENERGY = 20;
+    const int INSURANCE_TIME = 10;
+    const int DEADLINE_TIME = 30;
 
     double KebabCooldown, InsuranceCooldown, DeadlineCooldown;
-    bool isKebabOnCooldown = false, isInsuranceOnCooldown = false, isDeadlineOnCooldown = false;
-    double KebabTimer = 0, InsuranceTimer = 0, DeadlineTimer = 0;
+    static bool isKebabOnCooldown, isInsuranceOnCooldown, isDeadlineOnCooldown;
+    static double KebabTimer, InsuranceTimer, DeadlineTimer;
+    
+    private GameObject insuranceTimeLeft;
+    private GameObject deadlineTimeLeft;
+    private Vector3 insuranceTimeLeftPosition;
+    private Vector3 deadlineTimeLeftPosition;
+    
     void Awake()
     {
-        GameObject.Find("KebabQuantity").GetComponent<Text>().text = PlayerPrefs.HasKey("KebabBoost") ? PlayerPrefs.GetInt("KebabBoost").ToString() : "0";
-        GameObject.Find("InsuranceQuantity").GetComponent<Text>().text = PlayerPrefs.HasKey("InsuranceBoost") ? PlayerPrefs.GetInt("InsuranceBoost").ToString() : "0";
-        GameObject.Find("DeadlineQuantity").GetComponent<Text>().text = PlayerPrefs.HasKey("DeadlineBoost") ? PlayerPrefs.GetInt("DeadlineBoost").ToString() : "0";
+        insuranceTimeLeft = GameObject.Find("InsuranceTimeLeftImage");
+        deadlineTimeLeft = GameObject.Find("DeadlineTimeLeftImage");
+        insuranceTimeLeftPosition = insuranceTimeLeft.transform.position;
+        deadlineTimeLeftPosition = deadlineTimeLeft.transform.position;
+        GameObject.Find("KebabQuantity").GetComponent<Text>().text = PlayerPrefs.GetInt("KebabBoost", 0).ToString();
+        GameObject.Find("InsuranceQuantity").GetComponent<Text>().text = PlayerPrefs.GetInt("InsuranceBoost", 0).ToString();
+        GameObject.Find("DeadlineQuantity").GetComponent<Text>().text = PlayerPrefs.GetInt("DeadlineBoost", 0).ToString();
         KebabCooldown = InsuranceCooldown = DeadlineCooldown = 40f;
+        KebabTimer = InsuranceTimer = DeadlineTimer = 0f;
+        isKebabOnCooldown = isInsuranceOnCooldown = isDeadlineOnCooldown = false;
     }
 
     private void Update()
     {
-        if (GameObject.Find("MainCanvas").GetComponent<Canvas>().enabled == true && isKebabOnCooldown)
+        if (GameObject.Find("MainCanvas").GetComponent<Canvas>().enabled && isKebabOnCooldown)
         {
             KebabTimer += Time.deltaTime;
             GameObject.Find("KebabButtonText").GetComponent<Text>().text = (KebabCooldown - KebabTimer).ToString("00.00");
         }
-        if (GameObject.Find("MainCanvas").GetComponent<Canvas>().enabled == true && isInsuranceOnCooldown)
+        if (GameObject.Find("MainCanvas").GetComponent<Canvas>().enabled && isInsuranceOnCooldown)
         {
             InsuranceTimer += Time.deltaTime;
             GameObject.Find("InsuranceButtonText").GetComponent<Text>().text = (InsuranceCooldown - InsuranceTimer).ToString("00.00");
+            updateInsuranceTimeLeft();
         }
-        if (GameObject.Find("MainCanvas").GetComponent<Canvas>().enabled == true && isDeadlineOnCooldown)
+        if (GameObject.Find("MainCanvas").GetComponent<Canvas>().enabled && isDeadlineOnCooldown)
         {
             DeadlineTimer += Time.deltaTime;
             GameObject.Find("DeadlineButtonText").GetComponent<Text>().text = (DeadlineCooldown - DeadlineTimer).ToString("00.00");
+            updateDeadlineTimeLeft();
         }
-
-
-        if(KebabTimer>=KebabCooldown)
+        
+        if (KebabTimer >= KebabCooldown)
         {
             isKebabOnCooldown = false;
             GameObject.Find("KebabButton").GetComponent<Button>().interactable = true;
             GameObject.Find("KebabButtonText").GetComponent<Text>().text = "Use";
-
         }
 
         if (InsuranceTimer >= InsuranceCooldown)
@@ -49,61 +63,86 @@ public class EquipmentHandler : MonoBehaviour
             isInsuranceOnCooldown = false;
             GameObject.Find("InsuranceButton").GetComponent<Button>().interactable = true;
             GameObject.Find("InsuranceButtonText").GetComponent<Text>().text = "Use";
-
         }
-
+        
         if (DeadlineTimer >= DeadlineCooldown)
         {
             isDeadlineOnCooldown = false;
             GameObject.Find("DeadlineButton").GetComponent<Button>().interactable = true;
             GameObject.Find("DeadlineButtonText").GetComponent<Text>().text = "Use";
-
-
         }
-
-
+        updateInsuranceTimeLeft();
+        updateDeadlineTimeLeft();
     }
 
-    public void KebabUse() //TODO: functionality
+    private void updateInsuranceTimeLeft()
     {
-        if (PlayerPrefs.HasKey("KebabBoost") && PlayerPrefs.GetInt("KebabBoost") > 0 && !isKebabOnCooldown)
+        var active = IsInsuranceBoostActive();
+        var timeLeft = INSURANCE_TIME - Mathf.FloorToInt((float) InsuranceTimer);
+        var timeLeftText = insuranceTimeLeft.GetComponentInChildren<Text>();
+        timeLeftText.text = (active ? timeLeft : INSURANCE_TIME).ToString();
+        timeLeftText.color = active && Range(0, 4).Contains(timeLeft) ? Color.red : Color.white;
+        if (timeLeftText.color == Color.red)
         {
-            PlayerPrefs.SetInt("KebabBoost", PlayerPrefs.GetInt("KebabBoost") - 1);
-            GameObject.Find("KebabQuantity").GetComponent<Text>().text = PlayerPrefs.HasKey("KebabBoost") ? PlayerPrefs.GetInt("KebabBoost").ToString() : "0";
-            isKebabOnCooldown = true;
-            KebabTimer = 0;
-            GameObject.Find("KebabButton").GetComponent<Button>().interactable = false;
-            GameObject.Find("KebabButtonText").GetComponent<Text>().text = (KebabCooldown - KebabTimer).ToString("00.00");
+            var position = insuranceTimeLeftPosition + Random.insideUnitSphere * 2.5f;
+            insuranceTimeLeft.transform.position = position;
         }
-
+        else insuranceTimeLeft.transform.position = insuranceTimeLeftPosition;
+        insuranceTimeLeft.SetActive(active);
     }
-
-    public void InsuranceUse() //TODO: functionality
+    
+    private void updateDeadlineTimeLeft()
     {
-        if (PlayerPrefs.HasKey("InsuranceBoost") && PlayerPrefs.GetInt("InsuranceBoost") > 0 && !isInsuranceOnCooldown)
+        var active = IsDeadlineBoostActive();
+        var timeLeft = DEADLINE_TIME - Mathf.FloorToInt((float) DeadlineTimer);
+        var timeLeftText = deadlineTimeLeft.GetComponentInChildren<Text>();
+        timeLeftText.text = (active ? timeLeft : DEADLINE_TIME).ToString();
+        timeLeftText.color = active && Range(0, 4).Contains(timeLeft) ? Color.red : Color.white;
+        if (timeLeftText.color == Color.red)
         {
-            PlayerPrefs.SetInt("InsuranceBoost", PlayerPrefs.GetInt("InsuranceBoost") - 1);
-            GameObject.Find("InsuranceQuantity").GetComponent<Text>().text = PlayerPrefs.HasKey("InsuranceBoost") ? PlayerPrefs.GetInt("InsuranceBoost").ToString() : "0";
-            isInsuranceOnCooldown = true;
-            InsuranceTimer = 0;
-            GameObject.Find("InsuranceButton").GetComponent<Button>().interactable = false;
-            GameObject.Find("InsuranceButtonText").GetComponent<Text>().text = (InsuranceCooldown - InsuranceTimer).ToString("00.00");
-
+            var position = deadlineTimeLeftPosition + Random.insideUnitSphere * 2.5f;
+            deadlineTimeLeft.transform.position = position;
         }
+        else deadlineTimeLeft.transform.position = deadlineTimeLeftPosition;
+        deadlineTimeLeft.SetActive(active);
     }
 
-    public void DeadlineUse() //TODO: functionality
+    public void KebabUse()
     {
-        if (PlayerPrefs.HasKey("DeadlineBoost") && PlayerPrefs.GetInt("DeadlineBoost") > 0 && !isDeadlineOnCooldown)
-        {
-            PlayerPrefs.SetInt("DeadlineBoost", PlayerPrefs.GetInt("DeadlineBoost") - 1);
-            GameObject.Find("DeadlineQuantity").GetComponent<Text>().text = PlayerPrefs.HasKey("DeadlineBoost") ? PlayerPrefs.GetInt("DeadlineBoost").ToString() : "0";
-            isDeadlineOnCooldown = true;
-            DeadlineTimer = 0;
-            GameObject.Find("DeadlineButton").GetComponent<Button>().interactable = false;
-            GameObject.Find("DeadlineButtonText").GetComponent<Text>().text = (DeadlineCooldown - DeadlineTimer).ToString("00.00");
-
-        }
+        if (PlayerPrefs.GetInt("KebabBoost", 0) <= 0 || isKebabOnCooldown) return;
+        PlayerPrefs.SetInt("KebabBoost", PlayerPrefs.GetInt("KebabBoost") - 1);
+        GameObject.Find("KebabQuantity").GetComponent<Text>().text = PlayerPrefs.GetInt("KebabBoost", 0).ToString();
+        isKebabOnCooldown = true;
+        KebabTimer = 0;
+        GameObject.Find("KebabButton").GetComponent<Button>().interactable = false;
+        GameObject.Find("KebabButtonText").GetComponent<Text>().text = (KebabCooldown - KebabTimer).ToString("00.00");
+        GameController.addEnergy(KEBAB_ENERGY);
     }
 
+    public void InsuranceUse()
+    {
+        if (PlayerPrefs.GetInt("InsuranceBoost", 0) <= 0 || isInsuranceOnCooldown) return;
+        PlayerPrefs.SetInt("InsuranceBoost", PlayerPrefs.GetInt("InsuranceBoost") - 1);
+        GameObject.Find("InsuranceQuantity").GetComponent<Text>().text = PlayerPrefs.GetInt("InsuranceBoost", 0).ToString();
+        isInsuranceOnCooldown = true;
+        InsuranceTimer = 0;
+        GameObject.Find("InsuranceButton").GetComponent<Button>().interactable = false;
+        GameObject.Find("InsuranceButtonText").GetComponent<Text>().text = (InsuranceCooldown - InsuranceTimer).ToString("00.00");
+        updateInsuranceTimeLeft();
+    }
+
+    public void DeadlineUse()
+    {
+        if (PlayerPrefs.GetInt("DeadlineBoost", 0) <= 0 || isDeadlineOnCooldown) return;
+        PlayerPrefs.SetInt("DeadlineBoost", PlayerPrefs.GetInt("DeadlineBoost") - 1);
+        GameObject.Find("DeadlineQuantity").GetComponent<Text>().text = PlayerPrefs.GetInt("DeadlineBoost", 0).ToString();
+        isDeadlineOnCooldown = true;
+        DeadlineTimer = 0;
+        GameObject.Find("DeadlineButton").GetComponent<Button>().interactable = false;
+        GameObject.Find("DeadlineButtonText").GetComponent<Text>().text = (DeadlineCooldown - DeadlineTimer).ToString("00.00");
+        updateDeadlineTimeLeft();
+    }
+
+    public static bool IsInsuranceBoostActive() => Range(0, INSURANCE_TIME).Contains(Mathf.FloorToInt((float) InsuranceTimer)) && isInsuranceOnCooldown;
+    public static bool IsDeadlineBoostActive() => Range(0, DEADLINE_TIME).Contains(Mathf.FloorToInt((float) DeadlineTimer)) && isDeadlineOnCooldown;
 }

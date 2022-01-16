@@ -110,6 +110,7 @@ public static class GameController
 
     public static void decreaseEnergy(int pts)
     {
+        if (EquipmentHandler.IsInsuranceBoostActive()) return;
         energy -= pts;
 
         GameObject.Find("Energy").GetComponent<Text>().text = "Energy: " + energy;
