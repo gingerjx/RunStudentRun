@@ -7,29 +7,27 @@ public class ChangeIcon : MonoBehaviour
 {
     public Sprite unMutedSprite;
     public Sprite mutedSprite;
-    public Button button;
+    public Image image;
 
     void Start()
     {
-        if (button == GameObject.Find("MuteMusic").GetComponent<Button>())
+        if (image == GameObject.Find("MuteMusicImage").GetComponent<Image>())
         {
-            if (GameController.musicMuted) button.image.sprite = mutedSprite;
-            else button.image.sprite = unMutedSprite;
+            image.sprite = GameController.musicMuted ? mutedSprite : unMutedSprite;
         }
-        else if (button == GameObject.Find("MuteSound").GetComponent<Button>())
+        else if (image == GameObject.Find("MuteSoundImage").GetComponent<Image>())
         {
-            if (GameController.soundMuted) button.image.sprite = mutedSprite;
-            else button.image.sprite = unMutedSprite;
+            image.sprite = GameController.soundMuted ? mutedSprite : unMutedSprite;
         }
     }
 
     void handleMusicAndSoundMute(bool muted)
     {
-        if (button == GameObject.Find("MuteMusic").GetComponent<Button>())
+        if (image == GameObject.Find("MuteMusicImage").GetComponent<Image>())
         {
             GameController.musicMuted = muted;
         }
-        else if (button == GameObject.Find("MuteSound").GetComponent<Button>())
+        else if (image == GameObject.Find("MuteSoundImage").GetComponent<Image>())
         {
             GameController.soundMuted = muted;
         }
@@ -37,15 +35,8 @@ public class ChangeIcon : MonoBehaviour
 
     public void ChangeButtonIcon()
     {
-        if (button.image.sprite == unMutedSprite)
-        { 
-            button.image.sprite = mutedSprite;
-            handleMusicAndSoundMute(true);
-        }
-        else if (button.image.sprite == mutedSprite) 
-        {
-            button.image.sprite = unMutedSprite;
-            handleMusicAndSoundMute(false);
-        } 
+        var cmp = image.sprite == unMutedSprite;
+        image.sprite = cmp ? mutedSprite : unMutedSprite;
+        handleMusicAndSoundMute(cmp);
     }
 }
