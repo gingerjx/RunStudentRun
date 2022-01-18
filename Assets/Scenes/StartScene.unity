@@ -285,8 +285,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Coins - you get them after every game based on your final score; can be
-    spend in the shop in exchange for skins and boosts
+  m_Text: "Coins \u2013 you get them after every game based on your final score;
+    can be spend in the shop in exchange for skins and boosts"
 --- !u!222 &20228600
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1142,7 +1142,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Deadline - makes us running faster for a duration of 30 sec; 30 sec cooldown
+  m_Text: "Deadline \u2013 makes us run faster for a duration of 30 sec; 30 sec cooldown"
 --- !u!222 &590535830
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1221,7 +1221,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Party - we lose 15 energy
+  m_Text: "Party \u2013 we lose 15 energy"
 --- !u!222 &619282725
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1454,7 +1454,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Kebab - renews 20 points of energy; 30 sec cooldown
+  m_Text: "Kebab \u2013 renews 20 points of energy; 30 sec cooldown"
 --- !u!222 &789495846
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1608,7 +1608,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: Doctor of Philosophy - gained after 20 semesters
+  m_Text: "Doctor of Philosophy \u2013 gained after 20 semesters"
 --- !u!222 &851167468
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1840,7 +1840,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Clover - gives us 1 ECTS point
+  m_Text: "Clover \u2013 gives us 1 ECTS point"
 --- !u!222 &930578616
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1919,7 +1919,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: Master's Degree - gained after 10 semesters
+  m_Text: "Master's Degree \u2013 gained after 10 semesters"
 --- !u!222 &966483301
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2520,7 +2520,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Energy drink - gives us 3 energy
+  m_Text: "Energy drink \u2013 gives us 3 energy"
 --- !u!222 &1073089974
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2599,7 +2599,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: ' Book - gives us 2 ECTS points'
+  m_Text: " Book \u2013 gives us 2 ECTS points"
 --- !u!222 &1086208256
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2917,7 +2917,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: Professor - gained after 30 semesters
+  m_Text: "Professor \u2013 gained after 30 semesters"
 --- !u!222 &1248502775
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3227,7 +3227,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Bed - gives us 10 energy
+  m_Text: "Bed \u2013 gives us 10 energy"
 --- !u!222 &1364478030
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3480,7 +3480,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Paper - gives us 3 ECTS points
+  m_Text: "Paper \u2013 gives us 3 ECTS points"
 --- !u!222 &1392312804
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4744,7 +4744,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Beer - we lose 5 energy
+  m_Text: "Beer \u2013 we lose 5 energy"
 --- !u!222 &1844946694
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5064,8 +5064,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Dean's Office Insurance - makes us untouchable by negative items for a
-    duration of 10 sec; 30 sec cooldown
+  m_Text: "Dean's Office Insurance \u2013 makes us untouchable by negative items
+    for a duration of 10 sec; 30 sec cooldown"
 --- !u!222 &1927685541
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5322,8 +5322,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Knowledge Points - premium currency that you can buy in the shop; can be
-    exchanged for boosts and premium skins
+  m_Text: "Knowledge Points \u2013 premium currency that you can buy in the shop;
+    can be exchanged for boosts and premium skins"
 --- !u!222 &1985241157
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5402,7 +5402,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Games - we lose 2 energy
+  m_Text: "Games \u2013 we lose 2 energy"
 --- !u!222 &1995023154
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5631,7 +5631,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: Engineer - gained after 7 semesters
+  m_Text: "Engineer \u2013 gained after 7 semesters"
 --- !u!222 &2113650742
 CanvasRenderer:
   m_ObjectHideFlags: 0
