@@ -16,19 +16,26 @@ public class EquipmentHandler : MonoBehaviour
     private GameObject deadlineTimeLeft;
     private Vector3 insuranceTimeLeftPosition;
     private Vector3 deadlineTimeLeftPosition;
-    
+
+    int kebabQuan, insuranceQuan, deadlineQuan;
+
     void Awake()
     {
         insuranceTimeLeft = GameObject.Find("InsuranceTimeLeftImage");
         deadlineTimeLeft = GameObject.Find("DeadlineTimeLeftImage");
         insuranceTimeLeftPosition = insuranceTimeLeft.transform.position;
         deadlineTimeLeftPosition = deadlineTimeLeft.transform.position;
-        GameObject.Find("KebabQuantity").GetComponent<Text>().text = PlayerPrefs.GetInt("KebabBoost", 0).ToString();
-        GameObject.Find("InsuranceQuantity").GetComponent<Text>().text = PlayerPrefs.GetInt("InsuranceBoost", 0).ToString();
-        GameObject.Find("DeadlineQuantity").GetComponent<Text>().text = PlayerPrefs.GetInt("DeadlineBoost", 0).ToString();
         KebabCooldown = InsuranceCooldown = DeadlineCooldown = 40f;
         KebabTimer = InsuranceTimer = DeadlineTimer = 0f;
         isKebabOnCooldown = isInsuranceOnCooldown = isDeadlineOnCooldown = false;
+
+        kebabQuan = Mathf.Clamp(PlayerPrefs.GetInt("KebabBoost", 0), 0, 5);
+        insuranceQuan = Mathf.Clamp(PlayerPrefs.GetInt("InsuranceBoost", 0), 0, 5);
+        deadlineQuan = Mathf.Clamp(PlayerPrefs.GetInt("DeadlineBoost", 0), 0, 5);
+
+        GameObject.Find("KebabQuantity").GetComponent<Text>().text = kebabQuan.ToString();
+        GameObject.Find("InsuranceQuantity").GetComponent<Text>().text = insuranceQuan.ToString();
+        GameObject.Find("DeadlineQuantity").GetComponent<Text>().text = deadlineQuan.ToString();
     }
 
     private void Update()
@@ -109,9 +116,10 @@ public class EquipmentHandler : MonoBehaviour
 
     public void KebabUse()
     {
-        if (PlayerPrefs.GetInt("KebabBoost", 0) <= 0 || isKebabOnCooldown) return;
+        if (kebabQuan <= 0 || isKebabOnCooldown) return;
         PlayerPrefs.SetInt("KebabBoost", PlayerPrefs.GetInt("KebabBoost") - 1);
-        GameObject.Find("KebabQuantity").GetComponent<Text>().text = PlayerPrefs.GetInt("KebabBoost", 0).ToString();
+        kebabQuan -= 1;
+        GameObject.Find("KebabQuantity").GetComponent<Text>().text = kebabQuan.ToString();
         isKebabOnCooldown = true;
         KebabTimer = 0;
         GameObject.Find("KebabButton").GetComponent<Button>().interactable = false;
@@ -121,9 +129,10 @@ public class EquipmentHandler : MonoBehaviour
 
     public void InsuranceUse()
     {
-        if (PlayerPrefs.GetInt("InsuranceBoost", 0) <= 0 || isInsuranceOnCooldown) return;
+        if (insuranceQuan <=0 || isInsuranceOnCooldown) return;
         PlayerPrefs.SetInt("InsuranceBoost", PlayerPrefs.GetInt("InsuranceBoost") - 1);
-        GameObject.Find("InsuranceQuantity").GetComponent<Text>().text = PlayerPrefs.GetInt("InsuranceBoost", 0).ToString();
+        insuranceQuan -= 1;
+        GameObject.Find("InsuranceQuantity").GetComponent<Text>().text = insuranceQuan.ToString();
         isInsuranceOnCooldown = true;
         InsuranceTimer = 0;
         GameObject.Find("InsuranceButton").GetComponent<Button>().interactable = false;
@@ -133,9 +142,10 @@ public class EquipmentHandler : MonoBehaviour
 
     public void DeadlineUse()
     {
-        if (PlayerPrefs.GetInt("DeadlineBoost", 0) <= 0 || isDeadlineOnCooldown) return;
+        if (deadlineQuan <= 0 || isDeadlineOnCooldown) return;
         PlayerPrefs.SetInt("DeadlineBoost", PlayerPrefs.GetInt("DeadlineBoost") - 1);
-        GameObject.Find("DeadlineQuantity").GetComponent<Text>().text = PlayerPrefs.GetInt("DeadlineBoost", 0).ToString();
+        deadlineQuan -= 1;
+        GameObject.Find("DeadlineQuantity").GetComponent<Text>().text = deadlineQuan.ToString();
         isDeadlineOnCooldown = true;
         DeadlineTimer = 0;
         GameObject.Find("DeadlineButton").GetComponent<Button>().interactable = false;
