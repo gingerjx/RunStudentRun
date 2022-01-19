@@ -6,11 +6,11 @@ using UnityEngine.UI;
 
 public static class GameController
 {
-    const int SEMESTER_PASS = 4; // For debugging purposes, will be changed to 30
-    const int BACHELOR_SEM = 1; // For debugging purposes, will be changed to 7
-    const int MASTER_SEM = 2; // For debugging purposes, will be changed to 10
-    const int PHD_SEM = 3; // For debugging purposes, will be changed to 20
-    const int PROF_SEM = 4; // For debugging purposes, will be changed to 40
+    const int SEMESTER_PASS = 30; // For debugging purposes, will be changed to 30
+    const int BACHELOR_SEM = 7; // For debugging purposes, will be changed to 7
+    const int MASTER_SEM = 10; // For debugging purposes, will be changed to 10
+    const int PHD_SEM = 20; // For debugging purposes, will be changed to 20
+    const int PROF_SEM = 40; // For debugging purposes, will be changed to 40
     const string BACHELOR_NAME = "B.S.E.";
     const string MASTER_NAME = "M.S.";
     const string PHD_NAME = "Ed.D.";
