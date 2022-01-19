@@ -31,11 +31,11 @@ public class Spawner : MonoBehaviour
             new KeyValuePair<GameObject, float>(paperPrefab, 0.05f), //5%
             new KeyValuePair<GameObject, float>(partyPrefab, 0.075f), //7.5%
             new KeyValuePair<GameObject, float>(drinkPrefab, 0.1f), //10%
-            new KeyValuePair<GameObject, float>(bookPrefab, 0.1f), //10%
-            new KeyValuePair<GameObject, float>(beerPrefab, 0.10f), //10%
-            new KeyValuePair<GameObject, float>(cloverPrefab, 0.15f), //15%
-            new KeyValuePair<GameObject, float>(gamepadPrefab, 0.15f), //15%
-            new KeyValuePair<GameObject, float>(null, 0.24f) //24%
+            new KeyValuePair<GameObject, float>(bookPrefab, 0.12f), //12%
+            new KeyValuePair<GameObject, float>(beerPrefab, 0.12f), //12%
+            new KeyValuePair<GameObject, float>(cloverPrefab, 0.2f), //20%
+            new KeyValuePair<GameObject, float>(gamepadPrefab, 0.2f), //20%
+            new KeyValuePair<GameObject, float>(null, 0.1f) //10%
         };
     }
 

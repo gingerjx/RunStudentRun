@@ -13,7 +13,6 @@ public class BackgroundMusicHandler : MonoBehaviour
         music.Play();
         if (AdsNowPlaying) {
             music.Stop();
-            Debug.Log("music Stopped");
         }
     }
 

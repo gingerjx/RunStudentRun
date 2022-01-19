@@ -32,8 +32,9 @@ public static class GameController
         ects += pts;
         if (ects >= SEMESTER_PASS)
         {
-            ects -= SEMESTER_PASS;
+            ects = 0;
             semester += 1;
+            Debug.Log("semester " + semester);
 
             if (semester > BACHELOR_SEM && semester <= MASTER_SEM)
             {
@@ -50,10 +51,14 @@ public static class GameController
                 GameObject.Find("Title").GetComponent<Text>().text = "Title: " + PHD_NAME;
                 currentTitle = 4;
             }
-            else
+            else if (semester > PROF_SEM)
             {
                 GameObject.Find("Title").GetComponent<Text>().text = "Title: " + PROF_NAME;
                 currentTitle = 5;
+            }
+            else
+            {
+                GameObject.Find("Title").GetComponent<Text>().text = "Title: None";
             }
         }
         
