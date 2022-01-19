@@ -11,6 +11,11 @@ public class LoadSavedDataStart : MonoBehaviour
             GameObject.Find("Highscore").GetComponent<Text>().text = "Highscore: " + PlayerPrefs.GetInt("Highscore");
         else
             GameObject.Find("Highscore").GetComponent<Text>().text = "Highscore: 0";
+
+        if(!PlayerPrefs.HasKey("ActiveSkin")) {
+            PlayerPrefs.SetInt("skinNormal", 1);
+            PlayerPrefs.SetString("ActiveSkin", "skinNormal");
+        }
     }
 
 }
