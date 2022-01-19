@@ -4692,6 +4692,7 @@ MonoBehaviour:
   cloverPrefab: {fileID: 4042346232087775529, guid: a348ef076f9264946a4324127ed8cc9a, type: 3}
   gamepadPrefab: {fileID: 2544522229958013220, guid: 753ae904997bfad499997eb7b16b8ce5, type: 3}
   partyPrefab: {fileID: 8604038963252626339, guid: 1d9260ad8cea6ca46b98e329ef6d1399, type: 3}
+  premiumPrefab: {fileID: 8604038963252626339, guid: b931aff62f5102449b51f789b660e64c, type: 3}
   spawnFreq: 1
   freqAccelaration: 15
 --- !u!4 &1159588650

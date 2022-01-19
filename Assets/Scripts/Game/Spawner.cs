@@ -14,6 +14,7 @@ public class Spawner : MonoBehaviour
     public GameObject cloverPrefab;
     public GameObject gamepadPrefab;
     public GameObject partyPrefab;
+    public GameObject premiumPrefab;
     List<KeyValuePair<GameObject, float>> prefabs; // prefab - spawn probability
 
     public float spawnFreq;
@@ -25,6 +26,7 @@ public class Spawner : MonoBehaviour
     {
         spawnTimer = spawnFreq;
         prefabs = new List<KeyValuePair<GameObject, float>>() {
+            new KeyValuePair<GameObject, float>(premiumPrefab, 0.01f), //1%
             new KeyValuePair<GameObject, float>(bedPrefab, 0.025f), //2.5%
             new KeyValuePair<GameObject, float>(paperPrefab, 0.05f), //5%
             new KeyValuePair<GameObject, float>(partyPrefab, 0.075f), //7.5%
@@ -33,7 +35,7 @@ public class Spawner : MonoBehaviour
             new KeyValuePair<GameObject, float>(beerPrefab, 0.10f), //10%
             new KeyValuePair<GameObject, float>(cloverPrefab, 0.15f), //15%
             new KeyValuePair<GameObject, float>(gamepadPrefab, 0.15f), //15%
-            new KeyValuePair<GameObject, float>(null, 0.25f) //25%
+            new KeyValuePair<GameObject, float>(null, 0.24f) //24%
         };
     }
 
