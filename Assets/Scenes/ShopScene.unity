@@ -1420,7 +1420,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   productId: 100knowledge
   buttonType: 0
-  consumePurchase: 0
+  consumePurchase: 1
   onPurchaseComplete:
     m_PersistentCalls:
       m_Calls:
@@ -1953,7 +1953,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   productId: 250knowledge
   buttonType: 0
-  consumePurchase: 0
+  consumePurchase: 1
   onPurchaseComplete:
     m_PersistentCalls:
       m_Calls:

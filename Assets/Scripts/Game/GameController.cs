@@ -153,7 +153,6 @@ public static class GameController
 
         ScoreHandler.resetTimer();
 
-
         Time.timeScale = 0;
     }
 

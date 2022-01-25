@@ -49,13 +49,17 @@ public class PlayerMovement : MonoBehaviour
         {
             var movementSpeed = !deadlineBoostActive ? MOVEMENT_SPEED_NORMAL : MOVEMENT_SPEED_BOOST;
             animator.speed = !deadlineBoostActive ? ANIMATOR_SPEED_NORMAL : ANIMATOR_SPEED_BOOST;
+            Camera cam = Camera.main;
+            float height = 2f * cam.orthographicSize;
+            float width = height * cam.aspect;
+            Vector3 position = new Vector3(Random.Range(0, width), height, 0);
 
-            if (p1Zone.Contains(touchPosition) && transform.localPosition.x > -Screen.width * 0.5) // w lewo
+            if (p1Zone.Contains(touchPosition) && transform.localPosition.x > -width * 0.5) // w lewo
             {
                 animator.SetFloat("Move X", -1);
                 transform.position += new Vector3(-movementSpeed * Time.deltaTime, 0, 0);
             }
-            else if (p2Zone.Contains(touchPosition) && transform.localPosition.x < Screen.width * 0.5) // w prawo
+            else if (p2Zone.Contains(touchPosition) && transform.localPosition.x < width * 0.5) // w prawo
             {
                 animator.SetFloat("Move X", 1);
                 transform.position += new Vector3(movementSpeed * Time.deltaTime, 0, 0);
