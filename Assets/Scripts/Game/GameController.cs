@@ -132,7 +132,7 @@ public static class GameController
         GameObject.Find("BackgroundMusic").GetComponent<AudioSource>().Pause();
         GameObject.Find("LoseScreen").GetComponent<Canvas>().enabled = true;
         GameObject.Find("MainCanvas").GetComponent<Canvas>().enabled = false;
-        GameObject.Find("Info").GetComponent<Text>().text ="Score: " + ScoreHandler.GetScore(semester, currentTitle);
+        //GameObject.Find("Info").GetComponent<Text>().text ="Score: " + ScoreHandler.GetScore(semester, currentTitle);
 
         if (PlayerPrefs.HasKey("Highscore"))
         {                
@@ -154,6 +154,7 @@ public static class GameController
         ScoreHandler.resetTimer();
 
         Time.timeScale = 0;
+        Debug.Log(Time.timeScale);
     }
 
 
