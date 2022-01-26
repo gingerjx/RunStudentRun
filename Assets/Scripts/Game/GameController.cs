@@ -20,7 +20,7 @@ public static class GameController
     static int semester = 1;
     static int ects = 0;
     static int energy = 100;
-    static int currentTitle = 0;
+    static int currentTitle = 1;
 
     static bool isPaused = false;
     
