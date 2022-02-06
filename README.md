@@ -1,6 +1,6 @@
 # RunStudentRun Project
 
-Academic project, which is an implementation of mobile game intended for Android. You can check it out [here](https://play.google.com/store/apps/details?id=com.pepegastudio.runstudentrun).
+Academic project, which is an implementation of mobile game intended for Android, developed by PepegaStudio group. You can check it out [here](https://play.google.com/store/apps/details?id=com.pepegastudio.runstudentrun).
 
 
 ## Screenshots
